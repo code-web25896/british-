@@ -2,6 +2,8 @@ import React from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
 import { ArrowUp, Mail, Phone, MapPin, Globe, ExternalLink, ShieldCheck } from 'lucide-react';
+import logoHeader from '../assets/images/logo_header.jpg';
+import logoAcademie from '../assets/images/logo_academie_internationale.png';
 
 interface FooterProps {
   onNavigate: (route: PageRoute) => void;
@@ -30,10 +32,8 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Column 1: Institutional Wordmark & Mission */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-sm bg-[#78163D] border border-[#C6A56B] flex items-center justify-center shrink-0">
-                <span className="font-serif font-bold text-sm tracking-wider text-white">
-                  BBAC
-                </span>
+              <div className="w-14 h-14 rounded-sm overflow-hidden border border-[#C6A56B] flex items-center justify-center shrink-0 bg-white">
+                <img src={logoHeader} alt="British Board Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h3 className="font-serif font-semibold text-lg text-white tracking-wide">
@@ -153,21 +153,28 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="text-[10px] uppercase tracking-wider text-[#C6A56B] block font-bold">
                 Strategic Educational Partner
               </span>
-              <p className="font-serif text-sm font-semibold text-white mt-1">
-                L’Académie Internationale de Beauté
-              </p>
-              <p className="text-[11px] text-stone-400 mt-0.5">
-                Campuses: Paris (France) · Tunis (Tunisie)
-              </p>
-              <a
-                href="https://lacademie-internationale.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2.5 inline-flex items-center gap-1.5 text-xs text-[#C6A56B] hover:text-white transition-colors font-medium"
-              >
-                <span>https://lacademie-internationale.com/</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
+              <div className="flex items-center gap-3 mt-2">
+                <div className="w-16 h-16 rounded-sm overflow-hidden bg-white flex items-center justify-center shrink-0 border border-[#C6A56B]/20">
+                  <img src={logoAcademie} alt="L'Académie Internationale de Beauté" className="w-full h-full object-contain p-1" />
+                </div>
+                <div>
+                  <p className="font-serif text-sm font-semibold text-white">
+                    L'Académie Internationale de Beauté
+                  </p>
+                  <p className="text-[11px] text-stone-400 mt-0.5">
+                    Campuses: Paris (France) · Tunis (Tunisie)
+                  </p>
+                  <a
+                    href="https://lacademie-internationale.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-[#C6A56B] hover:text-white transition-colors font-medium"
+                  >
+                    <span>lacademie-internationale.com</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Official Contact Details */}

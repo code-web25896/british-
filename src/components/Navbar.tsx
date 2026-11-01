@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
+import logoHeader from '../assets/images/logo_header.jpg';
 import {
   Menu,
   X,
@@ -122,10 +123,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C6A56B] rounded-sm group cursor-pointer whitespace-nowrap shrink-0"
               aria-label="British Board Home"
             >
-              <div className="w-10 h-10 rounded-sm bg-[#78163D] border border-[#C6A56B]/60 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
-                <span className="font-serif font-bold text-sm tracking-wider text-[#FFFFFF]">
-                  BBAC
-                </span>
+              <div className="w-10 h-10 rounded-sm overflow-hidden border border-[#C6A56B]/60 flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105 bg-white">
+                <img src={logoHeader} alt="British Board Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif font-semibold text-base sm:text-lg tracking-wide text-[#FFFFFF] group-hover:text-[#C6A56B] transition-colors leading-tight">
@@ -253,8 +252,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Header */}
               <div className="flex items-center justify-between pb-5 border-b border-stone-800">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-sm bg-[#78163D] border border-[#C6A56B]/50 flex items-center justify-center shadow-md">
-                    <span className="font-serif font-bold text-xs text-white">BBAC</span>
+                  <div className="w-9 h-9 rounded-sm overflow-hidden border border-[#C6A56B]/50 flex items-center justify-center shadow-md bg-white">
+                    <img src={logoHeader} alt="British Board Logo" className="w-full h-full object-contain" />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-serif text-sm font-semibold text-white">
