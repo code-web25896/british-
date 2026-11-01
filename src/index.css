@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --abac-burgundy: #78163D;
+    --abac-gold: #C6A56B;
+    --abac-charcoal: #202020;
+    --abac-ivory: #F8F6F2;
+    --abac-white: #FFFFFF;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html[dir="rtl"] {
+    font-family: 'Tajawal', 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, .font-display, .font-serif {
+    font-family: 'Playfair Display', Georgia, Cambria, serif;
+  }
+
+  html[dir="rtl"] h1, 
+  html[dir="rtl"] h2, 
+  html[dir="rtl"] h3, 
+  html[dir="rtl"] .font-display {
+    font-family: 'Tajawal', 'Playfair Display', serif;
+    font-weight: 700;
+  }
+}
+
+/* Custom luxury utilities */
+.gold-shimmer {
+  background: linear-gradient(135deg, #C6A56B 0%, #EAD5A8 50%, #B89254 100%);
+}
+
+.gold-border {
+  border-color: rgba(198, 165, 107, 0.35);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #B89254 0%, #E0C792 50%, #9B7637 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.burgundy-gradient {
+  background: linear-gradient(145deg, #78163D 0%, #4E0E27 100%);
+}
+
+.ivory-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(198, 165, 107, 0.22);
+  box-shadow: 0 10px 30px -4px rgba(120, 22, 61, 0.06);
+}
+
+/* Luxury button shine effect */
+.btn-luxury {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-luxury::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 70%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-luxury:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+/* Ken Burns slow continuous motion for carousel */
+@keyframes kenburns-zoom {
+  0% {
+    transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+/* Professional cinematic transform for 1.5s auto-carousel */
+@keyframes hero-trans-pro {
+  0% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+    filter: brightness(0.95);
+  }
+  100% {
+    transform: scale(1.0) translate3d(0, 0, 0);
+    filter: brightness(1);
+  }
+}
+
+.animate-hero-pro {
+  animation: hero-trans-pro 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  will-change: transform, filter;
+}
+
+.animate-kenburns {
+  animation: kenburns-zoom 7s ease-out forwards;
+}
+
+/* Drop cap styling */
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.5rem;
+  line-height: 0.85;
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: 0.15rem;
+  color: #78163D;
+  font-weight: 700;
+}
+
+html[dir="rtl"] .drop-cap::first-letter {
+  float: right;
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
