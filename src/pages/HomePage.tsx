@@ -570,22 +570,20 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
 
                 {/* Direct Action Buttons with Icons */}
                 <div className="flex flex-wrap items-center gap-4 pt-4">
-                  <a
-                    href="https://lacademie-internationale.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-luxury inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 border border-[#C6A56B] shadow-lg"
+                  <button
+                    onClick={() => onNavigate('standards')}
+                    className="btn-luxury inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 border border-[#C6A56B] shadow-lg cursor-pointer"
                   >
-                    <ExternalLink className="w-4 h-4 text-[#C6A56B]" />
-                    <span>{t.academie.visitCta}</span>
-                  </a>
+                    <ShieldCheck className="w-4 h-4 text-[#C6A56B]" />
+                    <span>Educational Standards</span>
+                  </button>
 
                   <button
-                    onClick={() => onNavigate('academie')}
+                    onClick={() => onNavigate('contact')}
                     className="btn-luxury inline-flex items-center gap-2.5 px-6 py-3.5 bg-white text-[#202020] hover:bg-stone-50 text-xs font-semibold uppercase tracking-wider rounded-sm transition-colors border border-[#C6A56B]/60 shadow-sm cursor-pointer"
                   >
-                    <GraduationCap className="w-4 h-4 text-[#78163D]" />
-                    <span>Institutional Profile</span>
+                    <Award className="w-4 h-4 text-[#78163D]" />
+                    <span>Inquire About Partnership</span>
                     <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                   </button>
                 </div>
@@ -617,18 +615,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
                           Campuses: Paris & Tunis
                         </p>
                         <p className="text-[10px] text-[#C6A56B] uppercase tracking-wider">
-                          https://lacademie-internationale.com/
+                          Strategic Educational Partner
                         </p>
                       </div>
-                      <a
-                        href="https://lacademie-internationale.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 bg-[#78163D] text-white rounded hover:bg-[#8F1B4A] transition-colors"
-                        aria-label="Open academy website"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -879,7 +868,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
               <ShieldCheck className="w-5 h-5 text-[#C6A56B] shrink-0 mt-1" />
               <div>
                 <h4 className="font-serif text-sm font-semibold text-white">
-                  American Board of Aesthetics and Cosmetology (ABAC) · Partenariats Paris & Tunis
+                  British Board of Aesthetics and Cosmetology · Paris & Tunis Partnerships
                 </h4>
                 <p className="text-xs text-stone-300 leading-relaxed mt-0.5">
                   {t.pricing.officialAcademyNotice}
@@ -888,15 +877,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
             </div>
 
             <div className="flex items-center gap-3 shrink-0">
-              <a
-                href="https://lacademie-internationale.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-luxury px-5 py-2.5 bg-[#C6A56B] hover:bg-[#D4B782] text-[#202020] text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors flex items-center gap-2 shadow-sm"
+              <button
+                onClick={() => onNavigate('contact')}
+                className="btn-luxury px-5 py-2.5 bg-[#C6A56B] hover:bg-[#D4B782] text-[#202020] text-xs font-semibold uppercase tracking-wider rounded-xs transition-colors flex items-center gap-2 shadow-sm cursor-pointer"
               >
-                <span>Académie Partenaire (Paris · Tunis)</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+                <span>Partner Inquiries</span>
+                <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
+              </button>
               <a
                 href="tel:+447497275861"
                 className="btn-luxury px-4 py-2.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold rounded-xs border border-[#C6A56B]/50 flex items-center gap-2"

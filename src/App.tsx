@@ -186,15 +186,13 @@ export default function App() {
           <span>+44 7497 275861</span>
         </a>
 
-        <a
-          href="https://lacademie-internationale.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[11px] text-[#C6A56B] hover:text-white font-medium truncate px-2"
+        <button
+          onClick={() => handleNavigate('contact')}
+          className="inline-flex items-center gap-1.5 text-[11px] text-[#C6A56B] hover:text-white font-medium truncate px-2 cursor-pointer"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#C6A56B] shrink-0" />
-          <span className="truncate">L’Académie</span>
-        </a>
+          <span className="truncate">Contact Board</span>
+        </button>
 
         {showScrollTop && (
           <button

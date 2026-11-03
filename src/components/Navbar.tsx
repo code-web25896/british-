@@ -55,8 +55,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { route: 'about', label: t.nav.about, icon: <ShieldCheck className="w-4 h-4 text-[#C6A56B]" /> },
     { route: 'mission-vision', label: t.nav.missionVision, icon: <Target className="w-4 h-4 text-[#C6A56B]" /> },
     { route: 'standards', label: t.nav.standards, icon: <BookOpen className="w-4 h-4 text-[#C6A56B]" /> },
-    { route: 'programs', label: t.nav.programs, icon: <GraduationCap className="w-4 h-4 text-[#C6A56B]" /> },
-    { route: 'academie', label: t.nav.academie, icon: <Sparkles className="w-4 h-4 text-[#C6A56B]" /> },
     { route: 'gallery', label: t.nav.gallery, icon: <Camera className="w-4 h-4 text-[#C6A56B]" /> },
   ];
 
@@ -82,16 +80,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[#78163D] text-[#C6A56B] border border-[#C6A56B]/30 shrink-0">
                 Strategic Partner
               </span>
-              <a
-                href="https://lacademie-internationale.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#C6A56B] transition-colors flex items-center gap-1.5 font-medium truncate"
-              >
+              <div className="flex items-center gap-1.5 font-medium truncate text-stone-300">
                 <Sparkles className="w-3 h-3 text-[#C6A56B] shrink-0" />
                 <span className="truncate">L’Académie Internationale de Beauté (Paris · Tunis)</span>
-                <ExternalLink className="w-2.5 h-2.5 opacity-70 shrink-0" />
-              </a>
+              </div>
             </div>
 
             {/* Right: Official Direct Phone Line */}

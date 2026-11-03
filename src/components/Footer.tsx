@@ -94,22 +94,6 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('programs')}
-                  className="hover:text-[#C6A56B] transition-colors cursor-pointer"
-                >
-                  {t.nav.programs}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('academie')}
-                  className="hover:text-[#C6A56B] transition-colors cursor-pointer"
-                >
-                  {t.nav.academie}
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => onNavigate('gallery')}
                   className="hover:text-[#C6A56B] transition-colors cursor-pointer"
                 >
@@ -125,7 +109,7 @@ export const Footer: React.FC<FooterProps> = ({
               {t.footer.communication}
             </h4>
 
-            {/* Featured Associated Academy Link */}
+            {/* Featured Associated Academy Mention */}
             <div className="p-3.5 bg-[#242424] border border-[#C6A56B]/30 rounded-sm">
               <span className="text-[10px] uppercase tracking-wider text-[#C6A56B] block font-bold">
                 Strategic Educational Partner
@@ -141,15 +125,6 @@ export const Footer: React.FC<FooterProps> = ({
                   <p className="text-[11px] text-stone-400 mt-0.5">
                     Campuses: Paris (France) · Tunis (Tunisia)
                   </p>
-                  <a
-                    href="https://lacademie-internationale.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-1.5 inline-flex items-center gap-1.5 text-xs text-[#C6A56B] hover:text-white transition-colors font-medium"
-                  >
-                    <span>lacademie-internationale.com</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
                 </div>
               </div>
             </div>

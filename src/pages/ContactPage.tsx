@@ -188,24 +188,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
             {/* Associated Academy reminder */}
             <div className="bg-white p-6 border border-[#C6A56B]/25 rounded-sm shadow-sm space-y-2">
               <span className="text-[10px] uppercase tracking-wider text-[#78163D] font-bold block">
-                Direct Training Inquiries
+                Partner Training Hubs
               </span>
               <p className="font-serif text-sm font-semibold text-[#202020]">
-                Looking for Masterclass Enrollment at L’Académie?
+                Strategic Academic Partnership
               </p>
               <p className="text-xs text-stone-600 leading-relaxed">
-                You can also visit the official portal of L’Académie Internationale de Beauté directly for studio atelier schedules and registration.
+                Practical training and clinical examination facilities are organized in partnership with L’Académie Internationale de Beauté across Paris and Tunis campuses.
               </p>
-              <div className="pt-2">
-                <a
-                  href="https://lacademie-internationale.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-[#78163D] hover:text-[#C6A56B] font-semibold underline"
-                >
-                  Visit https://lacademie-internationale.com/
-                </a>
-              </div>
             </div>
           </div>
 

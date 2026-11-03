@@ -80,8 +80,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
         icon: <Award className="w-4 h-4 text-[#C6A56B]" />,
       },
       secondaryAction: {
-        label: { en: 'Explore Programs', fr: 'Nos Formations' },
-        route: 'programs',
+        label: { en: 'Educational Standards', fr: 'Normes Pédagogiques' },
+        route: 'standards',
         icon: <BookOpen className="w-4 h-4" />,
       },
       tabLabel: {
@@ -102,28 +102,28 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
         fr: 'L’Académie Internationale de Beauté (Paris · Tunis)',
       },
       subheadline: {
-        en: 'High-end European training ateliers and masterclass artistry across Paris and Tunis, cultivating elite practitioners globally.',
-        fr: 'Ateliers parisiens de prestige et pôle méditerranéen d’exception à Tunis formant l’avant-garde des talents de la beauté.',
+        en: 'High-end European training ateliers and masterclass artistry across Paris and Tunis, cultivating elite practitioners globally in synergy with the British Board.',
+        fr: 'Ateliers parisiens de prestige et pôle méditerranéen d’exception à Tunis formant l’avant-garde des talents de la beauté en synergie avec le British Board.',
       },
       primaryAction: {
         label: {
-          en: 'Visit Official Academy',
-          fr: 'Visiter l’Académie',
+          en: 'Educational Partnership',
+          fr: 'Partenariat Éducatif',
         },
-        externalUrl: 'https://lacademie-internationale.com/',
-        icon: <ExternalLink className="w-4 h-4 text-[#C6A56B]" />,
+        route: 'about',
+        icon: <Award className="w-4 h-4 text-[#C6A56B]" />,
       },
       secondaryAction: {
         label: {
-          en: 'View Academy Profile',
-          fr: 'Profil de l’Académie',
+          en: 'Educational Standards',
+          fr: 'Normes Pédagogiques',
         },
-        route: 'academie',
+        route: 'standards',
         icon: <GraduationCap className="w-4 h-4" />,
       },
       tabLabel: {
-        en: 'L’Académie (Paris · Tunis)',
-        fr: 'L’Académie (Paris · Tunis)',
+        en: 'Partner Academy',
+        fr: 'Académie Partenaire',
       },
     },
     {
@@ -152,10 +152,10 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
       },
       secondaryAction: {
         label: {
-          en: 'Cosmetology Catalog',
-          fr: 'Catalogue Cosmétologie',
+          en: 'About British Board',
+          fr: 'À Propos du Board',
         },
-        route: 'programs',
+        route: 'about',
         icon: <BookOpen className="w-4 h-4" />,
       },
       tabLabel: {

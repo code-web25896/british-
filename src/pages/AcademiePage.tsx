@@ -48,15 +48,7 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
                 />
                 <div className="p-4 bg-[#202020] text-stone-200 border-t border-[#C6A56B]/30 flex items-center justify-between text-xs">
                   <span>Paris & Tunis Campuses · Master Training</span>
-                  <a
-                    href="https://lacademie-internationale.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#C6A56B] hover:text-white flex items-center gap-1"
-                  >
-                    <span>Visit Portal</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                  <span className="text-[#C6A56B] font-medium">Strategic Partner</span>
                 </div>
               </div>
             </div>
@@ -76,16 +68,13 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://lacademie-internationale.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-luxury px-6 py-3.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 border border-[#C6A56B] shadow-lg flex items-center justify-center gap-2.5"
+                <button
+                  onClick={() => onNavigate('standards')}
+                  className="btn-luxury px-6 py-3.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-300 border border-[#C6A56B] shadow-lg flex items-center justify-center gap-2.5 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-[#C6A56B]" />
-                  <span>{t.academie.visitCta}</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                  <span>Educational Standards</span>
+                </button>
 
                 <button
                   onClick={() => onNavigate('contact')}
@@ -176,15 +165,7 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               </p>
               <div className="pt-2 text-xs text-[#C6A56B] font-medium flex items-center justify-between">
                 <span>British Board Standards</span>
-                <a
-                  href="https://lacademie-internationale.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white flex items-center gap-1"
-                >
-                  <span>lacademie-internationale.com</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+                <span className="text-stone-400">Accredited Hub</span>
               </div>
             </div>
 
@@ -201,15 +182,7 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               </p>
               <div className="pt-2 text-xs text-[#C6A56B] font-medium flex items-center justify-between">
                 <span>British Board Standards</span>
-                <a
-                  href="https://lacademie-internationale.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white flex items-center gap-1"
-                >
-                  <span>lacademie-internationale.com</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+                <span className="text-stone-400">Accredited Hub</span>
               </div>
             </div>
           </div>
@@ -223,15 +196,12 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <a
-                href="https://lacademie-internationale.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-luxury px-4 py-2 bg-stone-800 hover:bg-stone-700 text-[#C6A56B] text-xs font-semibold rounded-sm border border-[#C6A56B]/50 flex items-center gap-2"
+              <button
+                onClick={() => onNavigate('contact')}
+                className="btn-luxury px-4 py-2 bg-stone-800 hover:bg-stone-700 text-[#C6A56B] text-xs font-semibold rounded-sm border border-[#C6A56B]/50 flex items-center gap-2 cursor-pointer"
               >
-                <span>Admissions Portal</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
+                <span>Inquire About Partnership</span>
+              </button>
               <a
                 href="tel:+447497275861"
                 className="btn-luxury px-4 py-2 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold rounded-sm border border-[#C6A56B]/60"
