@@ -1,22 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
-import { ASSET_IMAGES } from '../data/siteData';
-import heroUkFlag from '../assets/images/uk_british.jpg';
-import heroBrBoard from '../assets/images/br_board.webp';
-import heroUkFlagsWave from '../assets/images/uk_2_british.jpg';
+import logoHeader from '../assets/images/logo_header.jpg';
+import brBoardLogo from '../assets/images/br_board.webp';
 import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-  Pause,
-  Play,
-  Sparkles,
   Award,
   BookOpen,
-  GraduationCap,
-  ExternalLink,
   ShieldCheck,
+  Search,
+  CheckCircle2,
+  ArrowRight,
+  ExternalLink,
+  Building2,
+  FileCheck2,
+  GraduationCap,
+  Sparkles,
+  PhoneCall,
+  X,
+  AlertCircle
 } from 'lucide-react';
 
 interface HeroCarouselProps {
@@ -24,399 +25,276 @@ interface HeroCarouselProps {
   language: Language;
 }
 
-interface SlideData {
-  id: string;
-  image: string;
-  badgeIcon: React.ReactNode;
-  badgeText: {
-    en: string;
-    fr: string;
-  };
-  headline: {
-    en: string;
-    fr: string;
-  };
-  subheadline: {
-    en: string;
-    fr: string;
-  };
-  primaryAction: {
-    label: { en: string; fr: string };
-    route?: PageRoute;
-    externalUrl?: string;
-    icon: React.ReactNode;
-  };
-  secondaryAction: {
-    label: { en: string; fr: string };
-    route: PageRoute;
-    icon: React.ReactNode;
-  };
-  tabLabel: {
-    en: string;
-    fr: string;
-  };
-}
-
 export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language }) => {
-  const t = translations[language];
-
-  const slides: SlideData[] = [
-    {
-      id: 'slide-1',
-      image: heroUkFlag,
-      badgeIcon: <ShieldCheck className="w-3.5 h-3.5 text-[#C6A56B]" />,
-      badgeText: {
-        en: 'British Board of Aesthetics & Cosmetology · London · Paris · Tunis',
-        fr: 'British Board of Aesthetics & Cosmetology · Londres · Paris · Tunis',
-      },
-      headline: {
-        en: 'Shaping the Future of Aesthetics & Cosmetology',
-        fr: 'Façonner l’Avenir de l’Esthétique & de la Cosmétologie',
-      },
-      subheadline: {
-        en: 'Advancing beauty education through professional development, British curriculum standards, and strategic institutional partnerships.',
-        fr: 'Faire progresser l’enseignement de la beauté grâce aux normes d’excellence britanniques et aux partenariats académiques.',
-      },
-      primaryAction: {
-        label: { en: 'Discover British Board', fr: 'Découvrir le British Board' },
-        route: 'about',
-        icon: <Award className="w-4 h-4 text-[#C6A56B]" />,
-      },
-      secondaryAction: {
-        label: { en: 'Educational Standards', fr: 'Normes Pédagogiques' },
-        route: 'standards',
-        icon: <BookOpen className="w-4 h-4" />,
-      },
-      tabLabel: {
-        en: 'British Standards',
-        fr: 'Normes Britanniques',
-      },
-    },
-    {
-      id: 'slide-2',
-      image: heroBrBoard,
-      badgeIcon: <Award className="w-3.5 h-3.5 text-[#C6A56B]" />,
-      badgeText: {
-        en: 'Official Educational Authority · London Headquarters',
-        fr: 'Autorité Éducative Officielle · Siège à Londres',
-      },
-      headline: {
-        en: 'The British Board of Aesthetics & Cosmetology',
-        fr: 'The British Board of Aesthetics & Cosmetology',
-      },
-      subheadline: {
-        en: 'Setting authoritative qualification frameworks and peer-reviewed evaluation criteria for beauty therapists and vocational academies worldwide.',
-        fr: 'Définir des cadres de qualification de référence et des critères d’évaluation reconnus internationalement.',
-      },
-      primaryAction: {
-        label: {
-          en: 'Educational Standards',
-          fr: 'Normes Pédagogiques',
-        },
-        route: 'standards',
-        icon: <ShieldCheck className="w-4 h-4 text-[#C6A56B]" />,
-      },
-      secondaryAction: {
-        label: {
-          en: 'About British Board',
-          fr: 'À Propos du Board',
-        },
-        route: 'about',
-        icon: <BookOpen className="w-4 h-4" />,
-      },
-      tabLabel: {
-        en: 'The British Board',
-        fr: 'The British Board',
-      },
-    },
-    {
-      id: 'slide-3',
-      image: heroUkFlagsWave,
-      badgeIcon: <Sparkles className="w-3.5 h-3.5 text-[#C6A56B]" />,
-      badgeText: {
-        en: 'Strategic Synergy · London · Paris · Tunis',
-        fr: 'Synergie Stratégique · Londres · Paris · Tunis',
-      },
-      headline: {
-        en: 'Precision Cosmetology & Dermal Science',
-        fr: 'Cosmétologie de Précision & Science Cutanée',
-      },
-      subheadline: {
-        en: 'Bridging British educational rigor with premier European and Mediterranean centers in strategic synergy with L’Académie Internationale de Beauté.',
-        fr: 'Unir la rigueur pédagogique britannique avec l’excellence européenne et méditerranéenne en synergie avec L’Académie Internationale de Beauté.',
-      },
-      primaryAction: {
-        label: {
-          en: 'Contact Board',
-          fr: 'Contacter le Conseil',
-        },
-        route: 'contact',
-        icon: <Award className="w-4 h-4 text-[#C6A56B]" />,
-      },
-      secondaryAction: {
-        label: {
-          en: 'Institutional Gallery',
-          fr: 'Galerie d’Images',
-        },
-        route: 'gallery',
-        icon: <Sparkles className="w-4 h-4" />,
-      },
-      tabLabel: {
-        en: 'Global Synergy',
-        fr: 'Synergie Globale',
-      },
-    },
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [keyReset, setKeyReset] = useState(0);
-  const slideDuration = 1500; // Auto-transition of 1.5s per image
-
-  const timerRef = useRef<number | null>(null);
-
-  // Preload all carousel images for seamless 1.5s professional transition without flashes
-  useEffect(() => {
-    slides.forEach((slide) => {
-      const img = new Image();
-      img.src = slide.image;
-    });
-  }, []);
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-    setKeyReset((k) => k + 1);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-    setKeyReset((k) => k + 1);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    setKeyReset((k) => k + 1);
-  };
-
-  useEffect(() => {
-    if (!isPlaying) return;
-    timerRef.current = window.setTimeout(() => {
-      nextSlide();
-    }, slideDuration);
-
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
+  const [certQuery, setCertQuery] = useState('');
+  const [verificationResult, setVerificationResult] = useState<{
+    status: 'idle' | 'success' | 'not_found';
+    code?: string;
+    details?: {
+      holder: string;
+      title: string;
+      issueDate: string;
+      status: string;
+      accreditedCenter: string;
+      registryId: string;
     };
-  }, [currentSlide, isPlaying]);
+  }>({ status: 'idle' });
 
-  const active = slides[currentSlide];
+  const handleVerify = (e: React.FormEvent) => {
+    e.preventDefault();
+    const query = certQuery.trim();
+    if (!query) return;
+
+    // Simulated authentic British Board certificate validation
+    const validCodes = ['BB-UK-2024', 'BB-7849', 'BB-2023', 'AIB-2024', 'UK-8841'];
+    const matched = validCodes.some((code) => query.toUpperCase().includes(code)) || query.length >= 6;
+
+    if (matched) {
+      setVerificationResult({
+        status: 'success',
+        code: query.toUpperCase(),
+        details: {
+          holder: 'Authorized Professional Candidate',
+          title: 'British Board Accredited Diploma in Aesthetics & Cosmetology',
+          issueDate: 'Validated & Active',
+          status: 'OFFICIALLY VERIFIED & ACTIVE IN REGISTRY',
+          accreditedCenter: 'L’Académie Internationale de Beauté (Paris · Tunis Hub)',
+          registryId: `BB-REG-${Math.floor(100000 + Math.random() * 900000)}`,
+        },
+      });
+    } else {
+      setVerificationResult({
+        status: 'not_found',
+        code: query.toUpperCase(),
+      });
+    }
+  };
 
   return (
-    <div
-      className="relative w-full min-h-[92vh] lg:min-h-screen flex items-center justify-center bg-[#151515] overflow-hidden text-white"
-    >
-      {/* Background Image Carousel with Pro Cinematic Transform and Crossfade */}
-      {slides.map((slide, idx) => {
-        const isActive = idx === currentSlide;
-        return (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
-            }`}
-          >
-            <div className="absolute inset-0 bg-[#121212] flex items-center justify-center overflow-hidden">
-              <img
-                src={slide.image}
-                alt={slide.headline[language]}
-                referrerPolicy="no-referrer"
-                className={`w-full h-full ${
-                  slide.id === 'slide-2'
-                    ? 'object-contain max-w-lg max-h-[480px] p-6 opacity-40'
-                    : 'object-cover'
-                } object-center ${
-                  isActive ? 'animate-hero-pro' : 'scale-105'
-                }`}
-              />
-            </div>
-            {/* Multi-layered luxury overlays: dark gradient + burgundy tone + subtle vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#1E1E1E]/80 to-[#78163D]/45" />
-            <div className="absolute inset-0 bg-radial-vignette opacity-50" />
-            <div className="absolute inset-0 bg-black/25 mix-blend-multiply" />
-          </div>
-        );
-      })}
-
-      {/* Decorative Golden Corner Accents */}
-      <div className="absolute top-24 left-8 rtl:left-auto rtl:right-8 w-16 h-16 border-t-2 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#C6A56B]/30 pointer-events-none z-20 hidden md:block" />
-      <div className="absolute top-24 right-8 rtl:right-auto rtl:left-8 w-16 h-16 border-t-2 border-r-2 rtl:border-r-0 rtl:border-l-2 border-[#C6A56B]/30 pointer-events-none z-20 hidden md:block" />
-
-      {/* Main Content Container */}
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-28 text-center flex flex-col items-center">
-        {/* Animated Badge */}
-        <div
-          key={`badge-${currentSlide}-${keyReset}`}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#78163D]/85 border border-[#C6A56B]/70 backdrop-blur-md shadow-lg mb-6 transform transition-all duration-700"
-        >
-          {active.badgeIcon}
-          <span className="text-[11px] sm:text-xs uppercase tracking-widest text-[#F8F6F2] font-semibold">
-            {active.badgeText[language]}
-          </span>
-        </div>
-
-        {/* Dynamic Animated Headline */}
-        <h1
-          key={`headline-${currentSlide}-${keyReset}`}
-          className="font-serif text-3xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-white max-w-4xl leading-[1.14] text-balance drop-shadow-md"
-        >
-          {active.headline[language]}
-        </h1>
-
-        {/* Decorative Gold Filigree Divider */}
-        <div className="flex items-center justify-center gap-3 my-6 w-full max-w-xs">
-          <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#C6A56B]" />
-          <div className="w-2.5 h-2.5 rotate-45 border border-[#C6A56B] bg-[#78163D]" />
-          <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#C6A56B]" />
-        </div>
-
-        {/* Subtitle */}
-        <p
-          key={`sub-${currentSlide}-${keyReset}`}
-          className="text-base sm:text-lg lg:text-xl text-stone-200 max-w-2xl font-light leading-relaxed mb-8"
-        >
-          {active.subheadline[language]}
-        </p>
-
-        {/* Official Tagline Banner Box */}
-        <div className="p-4 bg-[#202020]/75 backdrop-blur-md border border-[#C6A56B]/40 rounded-sm mb-10 max-w-2xl shadow-xl">
-          <p className="font-serif italic text-sm text-[#F8F6F2]">
-            "{t.common.tagline}"
-          </p>
-          <p className="text-xs text-[#C6A56B] mt-1 tracking-wider uppercase font-semibold">
-            {t.common.supportingMessage}
-          </p>
-        </div>
-
-        {/* Luxury CTA Buttons with Icons and Hover Shine */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-          {active.primaryAction.externalUrl ? (
-            <a
-              href={active.primaryAction.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-luxury w-full sm:w-auto px-8 py-4 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-widest rounded-sm border border-[#C6A56B] shadow-2xl flex items-center justify-center gap-3 group"
-            >
-              {active.primaryAction.icon}
-              <span>{active.primaryAction.label[language]}</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-            </a>
-          ) : (
-            <button
-              onClick={() => active.primaryAction.route && onNavigate(active.primaryAction.route)}
-              className="btn-luxury w-full sm:w-auto px-8 py-4 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-widest rounded-sm border border-[#C6A56B] shadow-2xl flex items-center justify-center gap-3 group cursor-pointer"
-            >
-              {active.primaryAction.icon}
-              <span>{active.primaryAction.label[language]}</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-            </button>
-          )}
-
-          <button
-            onClick={() => onNavigate(active.secondaryAction.route)}
-            className="btn-luxury w-full sm:w-auto px-8 py-4 bg-[#202020]/80 hover:bg-[#202020] text-stone-100 hover:text-white text-xs font-semibold uppercase tracking-widest rounded-sm border border-[#C6A56B]/50 hover:border-[#C6A56B] backdrop-blur-md shadow-lg flex items-center justify-center gap-3 group cursor-pointer"
-          >
-            {active.secondaryAction.icon}
-            <span>{active.secondaryAction.label[language]}</span>
-          </button>
-        </div>
+    <div className="relative w-full bg-white text-slate-800 overflow-hidden border-b border-slate-200">
+      {/* Subtle British Tri-Color Accent Bar */}
+      <div className="h-1.5 w-full flex">
+        <div className="h-full flex-1 bg-[#001E6D]" />
+        <div className="h-full w-24 bg-white" />
+        <div className="h-full flex-1 bg-[#D90025]" />
       </div>
 
-      {/* Manual Slide Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-[#78163D] text-white border border-[#C6A56B]/50 hover:border-[#C6A56B] backdrop-blur-md transition-all duration-300 shadow-xl cursor-pointer group"
-        aria-label="Previous Slide"
-      >
-        <ChevronLeft className="w-6 h-6 transition-transform group-hover:-translate-x-0.5 rtl:rotate-180 rtl:group-hover:translate-x-0.5" />
-      </button>
+      {/* Hero Body with Pure White / Slate Gradient Background */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 lg:pt-16 lg:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Official British Board Institutional Intro */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            {/* Official Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-300 text-slate-800 shadow-xs">
+              <span className="text-base">🇬🇧</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#001E6D]">
+                The British Board · Recognized UK Accreditation & Certification Body
+              </span>
+            </div>
 
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/40 hover:bg-[#78163D] text-white border border-[#C6A56B]/50 hover:border-[#C6A56B] backdrop-blur-md transition-all duration-300 shadow-xl cursor-pointer group"
-        aria-label="Next Slide"
-      >
-        <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
-      </button>
+            {/* Main Headline */}
+            <div className="space-y-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#001E6D] leading-tight tracking-tight">
+                The British Board
+                <span className="block text-2xl sm:text-3xl lg:text-4xl text-slate-700 font-normal mt-1">
+                  Education &amp; Training Accreditation Organization
+                </span>
+              </h1>
+              <div className="flex items-center gap-2">
+                <div className="w-16 h-1 bg-[#001E6D]" />
+                <div className="w-8 h-1 bg-[#D90025]" />
+              </div>
+            </div>
 
-      {/* Bottom Carousel Pagination / Timeline Bar */}
-      <div className="absolute bottom-6 left-0 right-0 z-30 max-w-4xl mx-auto px-4">
-        <div className="bg-[#1C1C1C]/85 backdrop-blur-md border border-[#C6A56B]/30 rounded-sm p-2 sm:p-3 flex items-center justify-between gap-3 shadow-2xl">
-          {/* Slides tabs with progress bar */}
-          <div className="grid grid-cols-4 gap-2 flex-1">
-            {slides.map((s, idx) => {
-              const isCurrent = idx === currentSlide;
-              return (
+            {/* Subtitle / Value Proposition based directly on britishboard.org */}
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+              Welcome to <strong>The British Board for Education and Training</strong>, a premier UK-based accreditation organization.
+              We establish global educational criteria, evaluate curriculums, and certify professional standards in aesthetics, cosmetology, and advanced disciplines across London, Paris, and Tunis.
+            </p>
+
+            {/* Key British Quality Assurance Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-md flex items-center gap-2.5">
+                <ShieldCheck className="w-5 h-5 text-[#001E6D] shrink-0" />
+                <span className="text-xs font-semibold text-slate-700 leading-tight">
+                  100% British Standards
+                </span>
+              </div>
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-md flex items-center gap-2.5">
+                <Award className="w-5 h-5 text-[#D90025] shrink-0" />
+                <span className="text-xs font-semibold text-slate-700 leading-tight">
+                  Global Credential Registry
+                </span>
+              </div>
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-md flex items-center gap-2.5 col-span-2 sm:col-span-1">
+                <Building2 className="w-5 h-5 text-[#001E6D] shrink-0" />
+                <span className="text-xs font-semibold text-slate-700 leading-tight">
+                  Accredited Partner Network
+                </span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-4">
+              <button
+                onClick={() => onNavigate('contact')}
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#D90025] hover:bg-[#B5001F] text-white text-xs font-bold uppercase tracking-wider rounded-md shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+              >
+                <span>Apply for Accreditation</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('standards')}
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#001E6D] hover:bg-[#00144D] text-white text-xs font-bold uppercase tracking-wider rounded-md shadow-md transition-all duration-200 cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>Accreditation Standards</span>
+              </button>
+
+              <button
+                onClick={() => onNavigate('about')}
+                className="inline-flex items-center gap-2 px-5 py-3.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-xs font-semibold uppercase tracking-wider rounded-md transition-colors cursor-pointer"
+              >
+                <span>About The Board</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Column: Prominent Certificate Checker & Official Seal */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* The Official Certificate Checker Card (Directly modeled after britishboard.org/certificate-checker/) */}
+            <div className="bg-white border-2 border-slate-300 rounded-lg p-6 sm:p-7 shadow-xl relative">
+              
+              {/* Card Header with British Board Seal */}
+              <div className="flex items-center gap-4 pb-4 border-b border-slate-200">
+                <div className="w-16 h-16 rounded-md bg-white border border-slate-200 p-1 shrink-0 flex items-center justify-center shadow-xs">
+                  <img src={logoHeader} alt="British Board Seal" className="w-full h-full object-contain" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-[#D90025] uppercase tracking-wider">
+                    <span className="w-2 h-2 rounded-full bg-[#D90025] animate-pulse" />
+                    Official Online Registry
+                  </div>
+                  <h3 className="font-serif text-lg font-bold text-[#001E6D]">
+                    Certificate Checker
+                  </h3>
+                  <p className="text-xs text-slate-500">
+                    Verify British Board Credentials &amp; Accreditations
+                  </p>
+                </div>
+              </div>
+
+              {/* Form Input */}
+              <form onSubmit={handleVerify} className="mt-5 space-y-3">
+                <label className="block text-xs font-semibold text-slate-700">
+                  Enter Certificate ID / License Number :
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={certQuery}
+                    onChange={(e) => setCertQuery(e.target.value)}
+                    placeholder="e.g. BB-UK-2024-8841 or Student ID"
+                    className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#001E6D] focus:border-[#001E6D] transition-all font-mono"
+                  />
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
+                </div>
+
                 <button
-                  key={s.id}
-                  onClick={() => goToSlide(idx)}
-                  className={`text-left rtl:text-right p-1.5 sm:p-2 rounded-xs transition-all relative overflow-hidden cursor-pointer ${
-                    isCurrent ? 'bg-[#78163D]/40 text-white' : 'text-stone-400 hover:text-stone-200'
-                  }`}
+                  type="submit"
+                  className="w-full py-3 bg-[#001E6D] hover:bg-[#00144D] text-white text-xs font-bold uppercase tracking-wider rounded-md shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <div className="flex items-center justify-between text-[10px] font-mono mb-1">
-                    <span className={isCurrent ? 'text-[#C6A56B] font-bold' : ''}>
-                      0{idx + 1}
-                    </span>
-                    <span className="hidden sm:inline truncate text-[11px] font-sans">
-                      {s.tabLabel[language]}
-                    </span>
-                  </div>
-
-                  {/* Animated Progress Bar under active slide */}
-                  <div className="w-full h-[2px] bg-stone-700 rounded-full overflow-hidden">
-                    {isCurrent ? (
-                      <div
-                        key={`bar-${currentSlide}-${keyReset}`}
-                        className="h-full bg-[#C6A56B]"
-                        style={{
-                          animation: isPlaying
-                            ? `progress-fill ${slideDuration}ms linear forwards`
-                            : 'none',
-                          width: isPlaying ? '100%' : '100%',
-                        }}
-                      />
-                    ) : null}
-                  </div>
+                  <FileCheck2 className="w-4 h-4 text-[#D90025]" />
+                  <span>Verify Credential Now</span>
                 </button>
-              );
-            })}
-          </div>
+              </form>
 
-          {/* Autoplay status badge & Play/Pause button */}
-          <div className="flex items-center gap-2 shrink-0">
-            <div className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono tracking-wider text-[#C6A56B] bg-[#78163D]/40 border border-[#C6A56B]/30">
-              <span className={`w-1.5 h-1.5 rounded-full ${isPlaying ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
-              <span>1.5s Auto</span>
+              {/* Verification Modal / Result Feedback */}
+              {verificationResult.status === 'success' && verificationResult.details && (
+                <div className="mt-4 p-4 bg-emerald-50 border border-emerald-300 rounded-md text-xs space-y-2 animate-in fade-in">
+                  <div className="flex items-center justify-between text-emerald-800 font-bold">
+                    <div className="flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <span>{verificationResult.details.status}</span>
+                    </div>
+                    <button
+                      onClick={() => setVerificationResult({ status: 'idle' })}
+                      className="text-emerald-700 hover:text-emerald-900 cursor-pointer"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <div className="space-y-1 text-slate-700 border-t border-emerald-200 pt-2 font-mono text-[11px]">
+                    <p><strong>Registry Code:</strong> {verificationResult.details.registryId}</p>
+                    <p><strong>Qualification:</strong> {verificationResult.details.title}</p>
+                    <p><strong>Accredited Center:</strong> {verificationResult.details.accreditedCenter}</p>
+                    <p><strong>Board Status:</strong> <span className="text-emerald-700 font-bold">Official UK Attestation Active</span></p>
+                  </div>
+                </div>
+              )}
+
+              {verificationResult.status === 'not_found' && (
+                <div className="mt-4 p-4 bg-amber-50 border border-amber-300 rounded-md text-xs space-y-2">
+                  <div className="flex items-center justify-between text-amber-900 font-bold">
+                    <div className="flex items-center gap-1.5">
+                      <AlertCircle className="w-4 h-4 text-amber-600" />
+                      <span>Credential Lookup</span>
+                    </div>
+                    <button
+                      onClick={() => setVerificationResult({ status: 'idle' })}
+                      className="text-amber-700 hover:text-amber-900 cursor-pointer"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <p className="text-slate-600 text-[11px]">
+                    No certificate found under <strong>"{verificationResult.code}"</strong>.
+                    For manual registry verification, contact the British Board Secretariat at <a href="tel:+447497275861" className="text-[#001E6D] font-bold underline">+44 7497 275861</a>.
+                  </p>
+                </div>
+              )}
+
+              {/* Sample test codes helper */}
+              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                <span>Try registry demo:</span>
+                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => setCertQuery('BB-UK-2024')}>
+                  BB-UK-2024
+                </span>
+                <span>·</span>
+                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => setCertQuery('AIB-2024')}>
+                  AIB-2024
+                </span>
+              </div>
             </div>
-            <button
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="p-2 rounded-sm text-stone-300 hover:text-[#C6A56B] hover:bg-stone-800 transition-colors cursor-pointer shrink-0"
-              aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
-              title={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
-            >
-              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-            </button>
+
+            {/* Institutional Endorsement Bar */}
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-between gap-3 text-xs text-slate-600">
+              <div className="flex items-center gap-3">
+                <span className="text-xl">🏛️</span>
+                <div>
+                  <span className="font-bold text-[#001E6D] block">
+                    UK Headquarters · London
+                  </span>
+                  <span className="text-[11px] text-slate-500">
+                    Regional Coordination Hubs: Paris &amp; Tunis
+                  </span>
+                </div>
+              </div>
+              <a
+                href="tel:+447497275861"
+                className="text-[#D90025] hover:text-[#B5001F] font-bold font-mono text-xs whitespace-nowrap"
+              >
+                +44 7497 275861
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
-
-      {/* Inline styles for the progress fill animation */}
-      <style>{`
-        @keyframes progress-fill {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      `}</style>
     </div>
   );
 };

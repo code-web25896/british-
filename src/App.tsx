@@ -131,7 +131,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8F6F2] text-[#202020] selection:bg-[#78163D] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-slate-800 selection:bg-[#001E6D] selection:text-white">
       {/* Top Navigation */}
       <Navbar
         currentRoute={currentRoute}
@@ -175,29 +175,29 @@ export default function App() {
         onLanguageChange={handleLanguageChange}
       />
 
-      {/* Mobile Sticky Quick Action Bar (Direct Call & Academy Portal) */}
-      <div className="lg:hidden fixed bottom-3 left-3 right-3 z-40 bg-[#161616]/95 backdrop-blur-md border border-[#C6A56B]/50 rounded-full py-2 px-3 shadow-2xl flex items-center justify-between text-xs text-white">
+      {/* Mobile Sticky Quick Action Bar (Direct Call & Board Portal) */}
+      <div className="lg:hidden fixed bottom-3 left-3 right-3 z-40 bg-white/95 backdrop-blur-md border border-slate-300 rounded-full py-2 px-3 shadow-xl flex items-center justify-between text-xs text-slate-800">
         <a
           href="tel:+447497275861"
-          className="btn-luxury inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white rounded-full font-semibold border border-[#C6A56B]/60 shadow-md tracking-wider text-[11px]"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#001E6D] hover:bg-[#00144D] text-white rounded-full font-bold shadow-xs tracking-wider text-[11px]"
           title="Direct Line"
         >
-          <PhoneCall className="w-3.5 h-3.5 text-[#C6A56B]" />
+          <PhoneCall className="w-3.5 h-3.5 text-[#D90025]" />
           <span>+44 7497 275861</span>
         </a>
 
         <button
           onClick={() => handleNavigate('contact')}
-          className="inline-flex items-center gap-1.5 text-[11px] text-[#C6A56B] hover:text-white font-medium truncate px-2 cursor-pointer"
+          className="inline-flex items-center gap-1.5 text-[11px] text-[#D90025] hover:text-[#B5001F] font-bold truncate px-2 cursor-pointer"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#C6A56B] shrink-0" />
-          <span className="truncate">Contact Board</span>
+          <Sparkles className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate">Apply for Accreditation</span>
         </button>
 
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="p-1.5 bg-stone-800 hover:bg-[#78163D] text-[#C6A56B] hover:text-white rounded-full border border-stone-700 transition-colors"
+            className="p-1.5 bg-slate-100 hover:bg-[#001E6D] text-slate-700 hover:text-white rounded-full border border-slate-300 transition-colors"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />
@@ -209,7 +209,7 @@ export default function App() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="hidden lg:flex fixed bottom-6 right-6 z-40 p-3 bg-[#78163D] hover:bg-[#8F1B4A] text-white rounded-full shadow-xl border border-[#C6A56B] transition-all transform hover:scale-105 cursor-pointer"
+          className="hidden lg:flex fixed bottom-6 right-6 z-40 p-3 bg-[#001E6D] hover:bg-[#D90025] text-white rounded-full shadow-xl border border-slate-200 transition-all transform hover:scale-105 cursor-pointer"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5" />

@@ -2,58 +2,65 @@
 
 @layer base {
   :root {
-    --abac-burgundy: #78163D;
-    --abac-gold: #C6A56B;
-    --abac-charcoal: #202020;
-    --abac-ivory: #F8F6F2;
-    --abac-white: #FFFFFF;
+    --bb-navy: #001E6D;
+    --bb-deep-navy: #001240;
+    --bb-red: #D90025;
+    --bb-crimson: #B5001F;
+    --bb-gold: #C6A56B;
+    --bb-white: #FFFFFF;
+    --bb-slate: #F8FAFC;
+    --bb-border: #E2E8F0;
   }
 
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  }
-
-  html[dir="rtl"] {
-    font-family: 'Tajawal', 'Inter', system-ui, sans-serif;
+    background-color: #FFFFFF;
+    color: #1E293B;
   }
 
   h1, h2, h3, .font-display, .font-serif {
     font-family: 'Playfair Display', Georgia, Cambria, serif;
   }
-
-  html[dir="rtl"] h1, 
-  html[dir="rtl"] h2, 
-  html[dir="rtl"] h3, 
-  html[dir="rtl"] .font-display {
-    font-family: 'Tajawal', 'Playfair Display', serif;
-    font-weight: 700;
-  }
 }
 
-/* Custom luxury utilities */
-.gold-shimmer {
-  background: linear-gradient(135deg, #C6A56B 0%, #EAD5A8 50%, #B89254 100%);
+/* British Institutional Color utilities */
+.bg-bb-navy {
+  background-color: #001E6D;
 }
 
-.gold-border {
-  border-color: rgba(198, 165, 107, 0.35);
+.text-bb-navy {
+  color: #001E6D;
 }
 
-.gold-text-gradient {
-  background: linear-gradient(135deg, #B89254 0%, #E0C792 50%, #9B7637 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.bg-bb-red {
+  background-color: #D90025;
 }
 
-.burgundy-gradient {
-  background: linear-gradient(145deg, #78163D 0%, #4E0E27 100%);
+.text-bb-red {
+  color: #D90025;
 }
 
-.ivory-card {
+.border-bb-navy {
+  border-color: #001E6D;
+}
+
+.border-bb-red {
+  border-color: #D90025;
+}
+
+.british-flag-bar {
+  background: linear-gradient(90deg, #001E6D 0%, #001E6D 33%, #FFFFFF 33%, #FFFFFF 66%, #D90025 66%, #D90025 100%);
+}
+
+.british-stripe {
+  background: linear-gradient(90deg, #001E6D 0%, #D90025 50%, #001E6D 100%);
+}
+
+.white-card {
   background-color: #FFFFFF;
-  border: 1px solid rgba(198, 165, 107, 0.22);
-  box-shadow: 0 10px 30px -4px rgba(120, 22, 61, 0.06);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(0, 30, 109, 0.05);
 }
 
 /* Luxury button shine effect */
