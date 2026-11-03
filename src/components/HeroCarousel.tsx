@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
 import { ASSET_IMAGES } from '../data/siteData';
+import heroUkFlag from '../assets/images/uk_british.jpg';
+import heroBrBoard from '../assets/images/br_board.webp';
+import heroUkFlagsWave from '../assets/images/uk_2_british.jpg';
 import {
   ArrowRight,
   ChevronLeft,
@@ -60,7 +63,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
   const slides: SlideData[] = [
     {
       id: 'slide-1',
-      image: ASSET_IMAGES.hero,
+      image: heroUkFlag,
       badgeIcon: <ShieldCheck className="w-3.5 h-3.5 text-[#C6A56B]" />,
       badgeText: {
         en: 'British Board of Aesthetics & Cosmetology · London · Paris · Tunis',
@@ -71,8 +74,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
         fr: 'Façonner l’Avenir de l’Esthétique & de la Cosmétologie',
       },
       subheadline: {
-        en: 'Advancing beauty education through professional development, curriculum standards, and partnership with L’Académie Internationale de Beauté.',
-        fr: 'Faire progresser l’enseignement de la beauté grâce aux normes de qualité et au partenariat avec L’Académie Internationale de Beauté (Paris · Tunis).',
+        en: 'Advancing beauty education through professional development, British curriculum standards, and strategic institutional partnerships.',
+        fr: 'Faire progresser l’enseignement de la beauté grâce aux normes d’excellence britanniques et aux partenariats académiques.',
       },
       primaryAction: {
         label: { en: 'Discover British Board', fr: 'Découvrir le British Board' },
@@ -85,67 +88,30 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
         icon: <BookOpen className="w-4 h-4" />,
       },
       tabLabel: {
-        en: 'British Board & Standards',
-        fr: 'British Board & Normes',
+        en: 'British Standards',
+        fr: 'Normes Britanniques',
       },
     },
     {
       id: 'slide-2',
-      image: ASSET_IMAGES.academie,
-      badgeIcon: <Sparkles className="w-3.5 h-3.5 text-[#C6A56B]" />,
+      image: heroBrBoard,
+      badgeIcon: <Award className="w-3.5 h-3.5 text-[#C6A56B]" />,
       badgeText: {
-        en: 'Strategic Educational Partner · Paris & Tunis',
-        fr: 'Partenaire Pédagogique Stratégique · Paris & Tunis',
+        en: 'Official Educational Authority · London Headquarters',
+        fr: 'Autorité Éducative Officielle · Siège à Londres',
       },
       headline: {
-        en: 'L’Académie Internationale de Beauté (Paris · Tunis)',
-        fr: 'L’Académie Internationale de Beauté (Paris · Tunis)',
+        en: 'The British Board of Aesthetics & Cosmetology',
+        fr: 'The British Board of Aesthetics & Cosmetology',
       },
       subheadline: {
-        en: 'High-end European training ateliers and masterclass artistry across Paris and Tunis, cultivating elite practitioners globally in synergy with the British Board.',
-        fr: 'Ateliers parisiens de prestige et pôle méditerranéen d’exception à Tunis formant l’avant-garde des talents de la beauté en synergie avec le British Board.',
+        en: 'Setting authoritative qualification frameworks and peer-reviewed evaluation criteria for beauty therapists and vocational academies worldwide.',
+        fr: 'Définir des cadres de qualification de référence et des critères d’évaluation reconnus internationalement.',
       },
       primaryAction: {
-        label: {
-          en: 'Educational Partnership',
-          fr: 'Partenariat Éducatif',
-        },
-        route: 'about',
-        icon: <Award className="w-4 h-4 text-[#C6A56B]" />,
-      },
-      secondaryAction: {
         label: {
           en: 'Educational Standards',
           fr: 'Normes Pédagogiques',
-        },
-        route: 'standards',
-        icon: <GraduationCap className="w-4 h-4" />,
-      },
-      tabLabel: {
-        en: 'Partner Academy',
-        fr: 'Académie Partenaire',
-      },
-    },
-    {
-      id: 'slide-3',
-      image: ASSET_IMAGES.cosmetology,
-      badgeIcon: <Award className="w-3.5 h-3.5 text-[#C6A56B]" />,
-      badgeText: {
-        en: 'Curriculum Excellence',
-        fr: 'Excellence des Programmes',
-      },
-      headline: {
-        en: 'Precision Cosmetology & Dermal Science',
-        fr: 'Cosmétologie de Précision & Science Cutanée',
-      },
-      subheadline: {
-        en: 'Structured pedagogical criteria blending hair architecture, colorimetry chemistry, and clinical skin diagnostics.',
-        fr: 'Des critères pédagogiques structurés alliant architecture capillaire, chimie des couleurs et diagnostic cutané.',
-      },
-      primaryAction: {
-        label: {
-          en: 'Educational Standards',
-          fr: 'Normes Éducatives',
         },
         route: 'standards',
         icon: <ShieldCheck className="w-4 h-4 text-[#C6A56B]" />,
@@ -159,29 +125,29 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
         icon: <BookOpen className="w-4 h-4" />,
       },
       tabLabel: {
-        en: 'Cosmetology Track',
-        fr: 'Filière Cosmétologie',
+        en: 'The British Board',
+        fr: 'The British Board',
       },
     },
     {
-      id: 'slide-4',
-      image: ASSET_IMAGES.masterclass,
-      badgeIcon: <GraduationCap className="w-3.5 h-3.5 text-[#C6A56B]" />,
+      id: 'slide-3',
+      image: heroUkFlagsWave,
+      badgeIcon: <Sparkles className="w-3.5 h-3.5 text-[#C6A56B]" />,
       badgeText: {
-        en: 'International Symposia & Masterclasses',
-        fr: 'Symposiums & Masterclasses Mondiales',
+        en: 'Strategic Synergy · London · Paris · Tunis',
+        fr: 'Synergie Stratégique · Londres · Paris · Tunis',
       },
       headline: {
-        en: 'Elevating Educators & Vocational Academies',
-        fr: 'Valoriser les Formateurs & les Grandes Écoles',
+        en: 'Precision Cosmetology & Dermal Science',
+        fr: 'Cosmétologie de Précision & Science Cutanée',
       },
       subheadline: {
-        en: 'Peer-reviewed curriculum audits, continuing educator development, and global symposium masterclasses.',
-        fr: 'Audits de programmes par les pairs, formation continue des enseignants et symposiums internationaux.',
+        en: 'Bridging British educational rigor with premier European and Mediterranean centers in strategic synergy with L’Académie Internationale de Beauté.',
+        fr: 'Unir la rigueur pédagogique britannique avec l’excellence européenne et méditerranéenne en synergie avec L’Académie Internationale de Beauté.',
       },
       primaryAction: {
         label: {
-          en: 'Connect with Board',
+          en: 'Contact Board',
           fr: 'Contacter le Conseil',
         },
         route: 'contact',
@@ -196,8 +162,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
         icon: <Sparkles className="w-4 h-4" />,
       },
       tabLabel: {
-        en: 'Masterclasses & Symposia',
-        fr: 'Masterclasses & Conférences',
+        en: 'Global Synergy',
+        fr: 'Synergie Globale',
       },
     },
   ];
@@ -259,14 +225,20 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate, language
               isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
-            <img
-              src={slide.image}
-              alt={slide.headline[language]}
-              referrerPolicy="no-referrer"
-              className={`w-full h-full object-cover object-center ${
-                isActive ? 'animate-hero-pro' : 'scale-105'
-              }`}
-            />
+            <div className="absolute inset-0 bg-[#121212] flex items-center justify-center overflow-hidden">
+              <img
+                src={slide.image}
+                alt={slide.headline[language]}
+                referrerPolicy="no-referrer"
+                className={`w-full h-full ${
+                  slide.id === 'slide-2'
+                    ? 'object-contain max-w-lg max-h-[480px] p-6 opacity-40'
+                    : 'object-cover'
+                } object-center ${
+                  isActive ? 'animate-hero-pro' : 'scale-105'
+                }`}
+              />
+            </div>
             {/* Multi-layered luxury overlays: dark gradient + burgundy tone + subtle vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#1E1E1E]/80 to-[#78163D]/45" />
             <div className="absolute inset-0 bg-radial-vignette opacity-50" />
