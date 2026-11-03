@@ -154,11 +154,11 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               Strategic Partner Hubs · Paris & Tunis
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-white">
-              Centres de Formation & Pôles d'Excellence
+              Training Centers & Hubs of Excellence
             </h3>
             <div className="w-16 h-[2px] bg-[#C6A56B] my-3" />
             <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
-              En collaboration avec le British Board of Aesthetics and Cosmetology, L’Académie Internationale de Beauté déploie son enseignement de haut vol à travers ses deux métropoles partenaires phares.
+              In collaboration with the British Board of Aesthetics and Cosmetology, L’Académie Internationale de Beauté delivers premier beauty and aesthetic education across its two flagship partner metropolitan hubs.
             </p>
           </div>
 
@@ -172,10 +172,10 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
                 </h4>
               </div>
               <p className="text-xs text-stone-300 leading-relaxed">
-                Ateliers de haute esthétique, masterclasses internationales en colorimétrie et soins dermocosmétiques au cœur de la capitale mondiale du raffinement et de l'élégance.
+                Advanced aesthetics workshops, international colorimetry masterclasses, and clinical dermocosmetic treatments in the world capital of refinement and elegance.
               </p>
               <div className="pt-2 text-xs text-[#C6A56B] font-medium flex items-center justify-between">
-                <span>Normes British Board</span>
+                <span>British Board Standards</span>
                 <a
                   href="https://lacademie-internationale.com/"
                   target="_blank"
@@ -193,14 +193,14 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-5 h-5 text-[#C6A56B]" />
                 <h4 className="font-serif text-lg font-semibold text-white">
-                  Campus Tunis (Tunisie)
+                  Campus Tunis (Tunisia)
                 </h4>
               </div>
               <p className="text-xs text-stone-300 leading-relaxed">
-                Pôle méditerranéen majeur offrant des formations professionnelles diplômantes et des perfectionnements en cosmétologie moderne répondant aux critères d'évaluation du British Board.
+                Major Mediterranean educational hub offering accredited vocational diploma programs and modern cosmetology certifications aligned with British Board standards.
               </p>
               <div className="pt-2 text-xs text-[#C6A56B] font-medium flex items-center justify-between">
-                <span>Normes British Board</span>
+                <span>British Board Standards</span>
                 <a
                   href="https://lacademie-internationale.com/"
                   target="_blank"
@@ -219,7 +219,7 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
             <div className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-[#C6A56B]" />
               <span className="text-xs text-stone-300">
-                Inscriptions & Secrétariat : <strong className="text-white">+44 7497 275861</strong>
+                Admissions & Secretariat: <strong className="text-white">+44 7497 275861</strong>
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -229,14 +229,14 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
                 rel="noopener noreferrer"
                 className="btn-luxury px-4 py-2 bg-stone-800 hover:bg-stone-700 text-[#C6A56B] text-xs font-semibold rounded-sm border border-[#C6A56B]/50 flex items-center gap-2"
               >
-                <span>Portail Inscription</span>
+                <span>Admissions Portal</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
               <a
                 href="tel:+447497275861"
                 className="btn-luxury px-4 py-2 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold rounded-sm border border-[#C6A56B]/60"
               >
-                Appeler +44 7497 275861
+                Call +44 7497 275861
               </a>
             </div>
           </div>

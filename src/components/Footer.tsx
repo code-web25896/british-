@@ -52,29 +52,6 @@ export const Footer: React.FC<FooterProps> = ({
             <p className="text-xs text-stone-400 leading-relaxed">
               {t.footer.aboutText}
             </p>
-
-            {/* Language Switcher in Footer (EN / FR only) */}
-            <div className="pt-2 flex items-center gap-2 text-xs">
-              <Globe className="w-3.5 h-3.5 text-[#C6A56B]" />
-              <span className="text-stone-400">Language:</span>
-              <button
-                onClick={() => onLanguageChange('en')}
-                className={`hover:text-white transition-colors cursor-pointer ${
-                  language === 'en' ? 'text-[#C6A56B] font-bold underline' : 'text-stone-400'
-                }`}
-              >
-                English
-              </button>
-              <span className="text-stone-600">·</span>
-              <button
-                onClick={() => onLanguageChange('fr')}
-                className={`hover:text-white transition-colors cursor-pointer ${
-                  language === 'fr' ? 'text-[#C6A56B] font-bold underline' : 'text-stone-400'
-                }`}
-              >
-                Français
-              </button>
-            </div>
           </div>
 
           {/* Column 2: Navigation Links */}
@@ -162,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({
                     L'Académie Internationale de Beauté
                   </p>
                   <p className="text-[11px] text-stone-400 mt-0.5">
-                    Campuses: Paris (France) · Tunis (Tunisie)
+                    Campuses: Paris (France) · Tunis (Tunisia)
                   </p>
                   <a
                     href="https://lacademie-internationale.com/"

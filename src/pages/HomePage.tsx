@@ -771,14 +771,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
                   {service.isPopular && (
                     <div className="absolute top-3 right-3 z-20 px-3 py-1 bg-gradient-to-r from-[#C6A56B] to-[#E3C994] text-[#202020] text-[10px] font-bold uppercase tracking-wider rounded-xs shadow-md flex items-center gap-1.5">
                       <Sparkles className="w-3 h-3 text-[#78163D]" />
-                      <span>{language === 'fr' ? 'Titre Phare du Board' : 'Flagship Credential'}</span>
+                      <span>Flagship Credential</span>
                     </div>
                   )}
 
                   {service.originalPriceUsd && (
                     <div className="absolute top-3 left-3 z-20 px-2.5 py-1 bg-[#78163D] text-white text-[10px] font-bold uppercase tracking-wider rounded-xs shadow-md flex items-center gap-1 border border-[#C6A56B]/40">
                       <BadgePercent className="w-3.5 h-3.5 text-[#C6A56B]" />
-                      <span>{language === 'fr' ? 'Économisez 35%' : 'Save 35%'}</span>
+                      <span>Save 35%</span>
                     </div>
                   )}
 
@@ -865,7 +865,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
                       className="w-full py-2.5 bg-[#202020] hover:bg-stone-800 text-stone-200 hover:text-white text-xs font-medium rounded-xs transition-colors flex items-center justify-center gap-2 border border-stone-700"
                     >
                       <Phone className="w-3.5 h-3.5 text-[#C6A56B]" />
-                      <span>{language === 'fr' ? 'Secrétariat du Board : +44 7497 275861' : 'Board Secretariat: +44 7497 275861'}</span>
+                      <span>Board Secretariat: +44 7497 275861</span>
                     </a>
                   </div>
                 </div>

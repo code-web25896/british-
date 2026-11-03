@@ -1,4 +1,4 @@
-export type Language = 'en' | 'fr';
+export type Language = 'en';
 
 export interface AcademyPricedService {
   id: string;

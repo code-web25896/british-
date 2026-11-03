@@ -35,7 +35,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
   const t = translations[language];
 
@@ -81,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Left: Strategic Academy Partner */}
             <div className="flex items-center gap-2 truncate">
               <span className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[#78163D] text-[#C6A56B] border border-[#C6A56B]/30 shrink-0">
-                {language === 'fr' ? 'Partenaire Majeur' : 'Strategic Partner'}
+                Strategic Partner
               </span>
               <a
                 href="https://lacademie-internationale.com/"
@@ -98,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Right: Official Direct Phone Line */}
             <div className="flex items-center gap-3 shrink-0 text-xs">
               <span className="hidden md:inline text-[10px] uppercase tracking-wider text-stone-400">
-                Hubs : Paris · Tunis · Londres
+                Hubs: Paris · Tunis · London
               </span>
               <span className="text-stone-700 hidden md:inline">|</span>
               <a
@@ -107,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 title="Direct Phone Line"
               >
                 <Phone className="w-3.5 h-3.5 text-[#C6A56B]" />
-                <span className="hidden sm:inline text-[10px] uppercase tracking-wider text-stone-400">Ligne Directe :</span>
+                <span className="hidden sm:inline text-[10px] uppercase tracking-wider text-stone-400">Direct Line:</span>
                 <span className="tabular-nums font-semibold tracking-wide">+44 7497 275861</span>
               </a>
             </div>
@@ -159,57 +158,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               })}
             </nav>
 
-            {/* Zone 3: 1 Primary Action + Multilingual Switcher (EN / FR only) */}
+            {/* Zone 3: Primary Action */}
             <div className="flex items-center gap-3 shrink-0">
-              {/* Language Selector Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm border border-[#C6A56B]/30 bg-[#202020]/40 text-xs font-medium text-stone-200 hover:text-white hover:border-[#C6A56B] transition-all cursor-pointer whitespace-nowrap"
-                  aria-label="Select Language"
-                >
-                  <Globe className="w-3.5 h-3.5 text-[#C6A56B]" />
-                  <span className="uppercase font-semibold tracking-wider">
-                    {language}
-                  </span>
-                </button>
-
-                {langDropdownOpen && (
-                  <div
-                    className="absolute right-0 mt-2 w-32 bg-[#202020] border border-[#C6A56B]/30 rounded shadow-xl py-1 z-50"
-                    onMouseLeave={() => setLangDropdownOpen(false)}
-                  >
-                    <button
-                      onClick={() => {
-                        onLanguageChange('en');
-                        setLangDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-1.5 text-xs transition-colors flex items-center justify-between ${
-                        language === 'en'
-                          ? 'text-[#C6A56B] bg-[#78163D]/30 font-semibold'
-                          : 'text-stone-300 hover:bg-stone-800'
-                      }`}
-                    >
-                      <span>English</span>
-                      {language === 'en' && <span className="text-[#C6A56B]">✓</span>}
-                    </button>
-                    <button
-                      onClick={() => {
-                        onLanguageChange('fr');
-                        setLangDropdownOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-1.5 text-xs transition-colors flex items-center justify-between ${
-                        language === 'fr'
-                          ? 'text-[#C6A56B] bg-[#78163D]/30 font-semibold'
-                          : 'text-stone-300 hover:bg-stone-800'
-                      }`}
-                    >
-                      <span>Français</span>
-                      {language === 'fr' && <span className="text-[#C6A56B]">✓</span>}
-                    </button>
-                  </div>
-                )}
-              </div>
 
               {/* Primary Nav Action: Contact with Luxury Button Styling and Icon */}
               <button
@@ -267,7 +217,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-1.5 text-stone-400 hover:text-white rounded-sm"
-                  aria-label="Fermer le menu"
+                  aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -276,13 +226,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Partner Highlight Card in Mobile Drawer */}
               <div className="mt-4 p-3 bg-[#242424] border border-[#C6A56B]/30 rounded-sm">
                 <span className="text-[9px] uppercase tracking-wider text-[#C6A56B] font-bold block mb-1">
-                  Partenaire Stratégique
+                  Strategic Partner
                 </span>
                 <p className="font-serif text-xs font-semibold text-white">
                   L’Académie Internationale de Beauté
                 </p>
                 <p className="text-[10px] text-stone-400 mt-0.5">
-                  Campus : Paris (France) · Tunis (Belvédère)
+                  Campuses: Paris (France) · Tunis (Tunisia)
                 </p>
               </div>
 
@@ -314,7 +264,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="btn-luxury flex items-center justify-center gap-2 w-full py-2.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white rounded-sm font-semibold text-xs border border-[#C6A56B] shadow-md tracking-wider"
                 >
                   <PhoneCall className="w-3.5 h-3.5 text-[#C6A56B]" />
-                  <span>Appeler : +44 7497 275861</span>
+                  <span>Call: +44 7497 275861</span>
                 </a>
 
                 <button
@@ -322,35 +272,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="flex items-center justify-center w-full px-4 py-2.5 text-xs font-semibold tracking-wider uppercase bg-[#C6A56B] text-[#202020] rounded-sm hover:bg-[#D4B782] transition-colors"
                 >
                   {t.nav.contact}
-                </button>
-              </div>
-            </div>
-
-            {/* Language Selection at Drawer Base (EN / FR only) */}
-            <div className="pt-6 border-t border-stone-800">
-              <span className="text-xs uppercase tracking-widest text-[#C6A56B] block mb-2 font-medium">
-                Langue / Language
-              </span>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  onClick={() => onLanguageChange('en')}
-                  className={`py-2 text-xs rounded border transition-colors font-medium ${
-                    language === 'en'
-                      ? 'border-[#C6A56B] bg-[#78163D] text-white font-bold'
-                      : 'border-stone-700 text-stone-300 hover:bg-stone-800'
-                  }`}
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => onLanguageChange('fr')}
-                  className={`py-2 text-xs rounded border transition-colors font-medium ${
-                    language === 'fr'
-                      ? 'border-[#C6A56B] bg-[#78163D] text-white font-bold'
-                      : 'border-stone-700 text-stone-300 hover:bg-stone-800'
-                  }`}
-                >
-                  Français
                 </button>
               </div>
             </div>

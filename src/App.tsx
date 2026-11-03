@@ -20,14 +20,8 @@ import { translations } from './i18n/translations';
 import { ArrowUp, PhoneCall, Sparkles } from 'lucide-react';
 
 export default function App() {
-  // Initialize language from localStorage or default to 'fr'
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('abac_language');
-    if (saved === 'en' || saved === 'fr') {
-      return saved;
-    }
-    return 'fr';
-  });
+  // English only — language is fixed to 'en'
+  const [language, setLanguage] = useState<Language>('en');
 
   // Routing state based on hash
   const getRouteFromHash = (): PageRoute => {
@@ -186,7 +180,7 @@ export default function App() {
         <a
           href="tel:+447497275861"
           className="btn-luxury inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white rounded-full font-semibold border border-[#C6A56B]/60 shadow-md tracking-wider text-[11px]"
-          title="Appel Direct"
+          title="Direct Line"
         >
           <PhoneCall className="w-3.5 h-3.5 text-[#C6A56B]" />
           <span>+44 7497 275861</span>
@@ -206,7 +200,7 @@ export default function App() {
           <button
             onClick={scrollToTop}
             className="p-1.5 bg-stone-800 hover:bg-[#78163D] text-[#C6A56B] hover:text-white rounded-full border border-stone-700 transition-colors"
-            aria-label="Haut de page"
+            aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4" />
           </button>
