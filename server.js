@@ -34,6 +34,6 @@ app.get('*', (req, res) => {
 
 // Démarrage du serveur
 app.listen(PORT, () => {
-  console.log(`[ABAC Server] Application démarrée avec succès sur le port ${PORT}`);
-  console.log(`[ABAC Server] Environnement : ${process.env.NODE_ENV || 'production'}`);
+  console.log(`[British Board Server] Application démarrée avec succès sur le port ${PORT}`);
+  console.log(`[British Board Server] Environnement : ${process.env.NODE_ENV || 'production'}`);
 });

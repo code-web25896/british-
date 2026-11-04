@@ -68,12 +68,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
       setSubmissionStatus('success');
       // Store submission log locally for auditing/confirmation
       try {
-        const existing = JSON.parse(localStorage.getItem('abac_inquiries') || '[]');
+        const existing = JSON.parse(localStorage.getItem('britishboard_inquiries') || '[]');
         existing.push({
           ...formData,
           submittedAt: new Date().toISOString(),
         });
-        localStorage.setItem('abac_inquiries', JSON.stringify(existing));
+        localStorage.setItem('britishboard_inquiries', JSON.stringify(existing));
       } catch {
         // LocalStorage fallback
       }

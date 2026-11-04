@@ -54,7 +54,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, language }) =>
                   Commitment to Truthful Institutional Governance:
                 </span>
                 <p>
-                  ABAC operates strictly as an educational and curricular benchmarking organization. All published guidelines, evaluation frameworks, and program descriptions are grounded in verifiable educational criteria, ensuring total credibility for students and institutions alike.
+                  The British Board operates strictly as an educational and curricular benchmarking organization. All published guidelines, evaluation frameworks, and program descriptions are grounded in verifiable educational criteria, ensuring total credibility for students and institutions alike.
                 </p>
               </div>
             </div>
@@ -142,7 +142,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, language }) =>
                 Explore Our Foundational Frameworks
               </h4>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Learn how ABAC articulates standards for training academies, curriculum developers, and aesthetic specialists worldwide.
+                Learn how The British Board articulates standards for training academies, curriculum developers, and aesthetic specialists worldwide.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <button

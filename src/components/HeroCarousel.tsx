@@ -77,27 +77,6 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
     setIsModalOpen(true);
   };
 
-  const handleSelectCode = (code: string) => {
-    setCertQuery(code);
-    const cleanQuery = code.toUpperCase().replace(/\s+/g, '');
-    const cleanQueryAlphaNum = code.toUpperCase().replace(/[^A-Z0-9]/g, '');
-
-    const found = OFFICIAL_CERTIFICATES.find((cert) => {
-      const cleanCertCode = cert.code.toUpperCase().replace(/\s+/g, '');
-      const cleanCertAlphaNum = cert.code.toUpperCase().replace(/[^A-Z0-9]/g, '');
-      return cleanCertCode === cleanQuery || cleanCertAlphaNum === cleanQueryAlphaNum;
-    });
-
-    if (found) {
-      setVerificationResult({
-        status: 'success',
-        code: found.code,
-        certificate: found,
-      });
-      setIsModalOpen(true);
-    }
-  };
-
 
 
   return (
@@ -228,7 +207,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                     type="text"
                     value={certQuery}
                     onChange={(e) => setCertQuery(e.target.value)}
-                    placeholder="e.g. BBC-2026-000125"
+                    placeholder="Enter Certificate ID / License Number"
                     className="w-full pl-9 pr-3 py-2.5 sm:pl-10 sm:pr-4 sm:py-3 bg-slate-50 border border-slate-300 rounded-md text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#001E6D] focus:border-[#001E6D] transition-all font-mono"
                   />
                   <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3 sm:top-3.5" />
@@ -284,22 +263,6 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                   </button>
                 </div>
               )}
-
-              {/* Sample test codes helper */}
-              <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-1 text-[11px] text-slate-500">
-                <span>Codes d'exemple :</span>
-                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => handleSelectCode('BBC-2026-000125')}>
-                  BBC-2026-000125
-                </span>
-                <span>·</span>
-                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => handleSelectCode('BBC-2026-000126')}>
-                  BBC-2026-000126
-                </span>
-                <span>·</span>
-                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => handleSelectCode('BBC-2026-000130')}>
-                  BBC-2026-000130
-                </span>
-              </div>
             </div>
 
             {/* Institutional Endorsement Bar */}
@@ -535,7 +498,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 "{verificationResult.code}"
               </div>
               <p className="text-slate-500 text-[11px] leading-relaxed">
-                Veuillez vérifier l'orthographe du code (ex: <span className="font-mono font-bold text-slate-700">BBC-2026-000125</span>) ou contacter l'administration de The British Board :
+                Veuillez vérifier l'exactitude de votre code ou contacter l'administration de The British Board :
               </p>
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-between text-xs">
                 <span className="font-medium text-slate-600">Assistance téléphonique :</span>

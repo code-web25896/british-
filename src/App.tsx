@@ -65,7 +65,7 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = 'ltr';
-    localStorage.setItem('abac_language', language);
+    localStorage.setItem('britishboard_language', language);
   }, [language]);
 
   // Update document title dynamically

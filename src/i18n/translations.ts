@@ -6,7 +6,7 @@ export interface Translations {
     brandAbbr: string;
     tagline: string;
     supportingMessage: string;
-    discoverABAC: string;
+    discoverBritishBoard: string;
     explorePrograms: string;
     learnMore: string;
     viewAll: string;
@@ -273,7 +273,7 @@ export const translations: Record<Language, Translations> = {
       brandAbbr: "The British Board",
       tagline: "Education & Training Accreditation Organization",
       supportingMessage: "Empowering education, training, and accredited institutions through international quality standards.",
-      discoverABAC: "Discover The British Board",
+      discoverBritishBoard: "Discover The British Board",
       explorePrograms: "Explore Accreditation Standards",
       learnMore: "Learn More",
       viewAll: "View All",

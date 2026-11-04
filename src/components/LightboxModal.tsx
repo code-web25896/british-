@@ -81,7 +81,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
         {/* Footer info bar */}
         <div className="px-6 py-3 bg-[#202020] border-t border-stone-800 flex items-center justify-between text-xs text-stone-400">
-          <span>American Board of Aesthetics and Cosmetology · Official Archive</span>
+          <span>The British Board · Official Archive</span>
           <span className="uppercase tracking-wider text-[11px] text-[#C6A56B]">
             {item.category}
           </span>

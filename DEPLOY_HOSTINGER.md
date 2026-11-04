@@ -1,6 +1,6 @@
 # Guide de Déploiement Hostinger Node.js
 
-Ce guide vous explique pas à pas comment déployer l'application **American Board of Aesthetics and Cosmetology (ABAC)** sur Hostinger en utilisant l'environnement **Node.js**.
+Ce guide vous explique pas à pas comment déployer l'application **The British Board for Education and Training** sur Hostinger en utilisant l'environnement **Node.js**.
 
 ---
 

@@ -1,6 +1,6 @@
 {
-  "name": "American Board of Aesthetics and Cosmetology (ABAC)",
-  "description": "Official institutional website of the American Board of Aesthetics and Cosmetology (ABAC). Advancing beauty education, cosmetology standards, and professional development.",
+  "name": "The British Board for Education and Training",
+  "description": "Official institutional website of The British Board for Education and Training. Recognized UK accreditation body, benchmarking educational standards and validating professional qualifications in aesthetics and cosmetology.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

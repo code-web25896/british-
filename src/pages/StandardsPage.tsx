@@ -93,7 +93,7 @@ export const StandardsPage: React.FC<StandardsPageProps> = ({
                 Institutional Quality Audits
               </h3>
               <p className="text-xs text-stone-300 leading-relaxed">
-                ABAC provides structured evaluation frameworks for academies seeking to verify that their laboratory sanitation, equipment calibration, and educator credentials meet internationally recognized benchmarks.
+                The British Board provides structured evaluation frameworks for academies seeking to verify that their laboratory sanitation, equipment calibration, and educator credentials meet internationally recognized benchmarks.
               </p>
 
               <div className="pt-4 border-t border-stone-800 space-y-2">
