@@ -1,4 +1,4 @@
-import { AreaOfExcellence, EducationalStandardPillar, ProgramItem, GalleryItem, AcademyPricedService } from '../types';
+import { AreaOfExcellence, EducationalStandardPillar, ProgramItem, GalleryItem, AcademyPricedService, NewsItem } from '../types';
 
 import heroImg from '../assets/images/abac_hero_aesthetic_education_1793449971731.jpg';
 import aboutImg from '../assets/images/abac_about_institutional_1793449971959.jpg';
@@ -6,12 +6,23 @@ import academieImg from '../assets/images/academie_internationale_beauty_1793449
 import cosmetologyImg from '../assets/images/abac_program_cosmetology_1793449986494.jpg';
 import masterclassImg from '../assets/images/abac_masterclass_workshop_1793449986400.jpg';
 
+import news1Img from '../assets/images/news1.png';
+import news2Img from '../assets/images/news2.jpg';
+import news3Img from '../assets/images/news3.jpg';
+import new4Img from '../assets/images/new4.png';
+import news5Img from '../assets/images/news5.jpg';
+
 export const ASSET_IMAGES = {
   hero: heroImg,
   about: aboutImg,
   academie: academieImg,
   cosmetology: cosmetologyImg,
-  masterclass: masterclassImg
+  masterclass: masterclassImg,
+  news1: news1Img,
+  news2: news2Img,
+  news3: news3Img,
+  news4: new4Img,
+  news5: news5Img,
 };
 
 export const AREAS_OF_EXCELLENCE: AreaOfExcellence[] = [
@@ -213,3 +224,56 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 ];
 
 export const ACADEMY_PRICED_SERVICES: AcademyPricedService[] = [];
+
+export const LATEST_NEWS_ITEMS: NewsItem[] = [
+  {
+    id: 'cpd-training-provider',
+    title: 'CPD Training Provider Accreditation',
+    category: 'Accreditation',
+    badge: 'CPD Certified',
+    date: 'Nov 03, 2025',
+    image: ASSET_IMAGES.news1,
+    summary: 'The British Board officially awards Continuing Professional Development (CPD) accreditation standards, validating verified educational syllabi and professional training providers internationally.',
+    fullContent: 'Continuing Professional Development (CPD) accreditation ensures that training institutions, cosmetic academies, and healthcare aesthetic providers maintain the highest pedagogical and clinical standards. The British Board validates curricula, student assessments, and faculty credentials under rigorous UK frameworks.'
+  },
+  {
+    id: 'accredited-centers-france-africa',
+    title: 'Accredited Training Centers Across France & Africa',
+    category: 'Global Network',
+    badge: 'International Hubs',
+    date: 'Oct 15, 2025',
+    image: ASSET_IMAGES.news2,
+    summary: 'In partnership with leading European vocational centers, The British Board certifies flagship training hubs in France and Africa to deliver recognized aesthetics certifications.',
+    fullContent: 'Through ongoing international collaboration with premier European aesthetics institutes, including L’Académie Internationale de Beauté, accredited centers deliver clinical workshops, masterclasses, and vocational diplomas strictly aligned with British Board standards.'
+  },
+  {
+    id: 'international-iso-quality',
+    title: 'International Quality & Institutional Benchmarks',
+    category: 'Institutional Standards',
+    badge: 'Quality Assurance',
+    date: 'Sep 20, 2025',
+    image: ASSET_IMAGES.news3,
+    summary: 'Comprehensive quality benchmarks and procedural audits for educational institutes seeking official British Board organizational endorsement and registry compliance.',
+    fullContent: 'Quality assurance is at the cornerstone of the British Board. Our comprehensive inspection protocols examine training methodologies, hygienic safety controls, trainer qualifications, and transparent student evaluation criteria.'
+  },
+  {
+    id: 'ukprn-registration',
+    title: 'UKPRN Listed: 10062939 Learning Provider Registry',
+    category: 'UK Government Registry',
+    badge: 'Verified UKPRN',
+    date: 'Aug 12, 2025',
+    image: ASSET_IMAGES.news4,
+    summary: 'The British Board is officially registered on the United Kingdom Register of Learning Providers (UKPRN: 10062939), cementing our transparent public record.',
+    fullContent: 'The UK Register of Learning Providers (UKPRN) is used across government agencies, education authorities, and learners to verify learning organizations. The British Board’s verified UKPRN is 10062939.'
+  },
+  {
+    id: 'good-standing-certificate',
+    title: 'Official Certificate of Good Standing Protocols',
+    category: 'Credentials',
+    badge: 'Board Verified',
+    date: 'Jul 05, 2025',
+    image: ASSET_IMAGES.news5,
+    summary: 'Announcement of the standardized international Certificate of Good Standing for registered aesthetic practitioners, salon directors, and clinical cosmetologists.',
+    fullContent: 'The Certificate of Good Standing serves as verifiable proof that an individual or institution upholds ethical business practices, active board registration, and continuous educational compliance with British Board standards.'
+  }
+];

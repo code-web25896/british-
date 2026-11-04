@@ -70,3 +70,14 @@ export interface ContactFormData {
   subject: string;
   message: string;
 }
+
+export interface NewsItem {
+  id: string;
+  title: string;
+  category: string;
+  date: string;
+  image: string;
+  summary: string;
+  fullContent?: string;
+  badge?: string;
+}

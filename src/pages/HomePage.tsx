@@ -1,10 +1,11 @@
-import React from 'react';
-import { Language, PageRoute } from '../types';
+import React, { useState } from 'react';
+import { Language, PageRoute, NewsItem } from '../types';
 import { translations } from '../i18n/translations';
 import {
   ASSET_IMAGES,
   AREAS_OF_EXCELLENCE,
   EDUCATIONAL_STANDARDS,
+  LATEST_NEWS_ITEMS,
 } from '../data/siteData';
 import {
   GraduationCap,
@@ -20,6 +21,9 @@ import {
   Compass,
   ArrowUpRight,
   Check,
+  Calendar,
+  Newspaper,
+  X,
 } from 'lucide-react';
 import { HeroCarousel } from '../components/HeroCarousel';
 
@@ -30,6 +34,7 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
   const t = translations[language];
+  const [selectedNewsItem, setSelectedNewsItem] = useState<NewsItem | null>(null);
 
   // Helper to map icon names
   const renderIcon = (name: string) => {
@@ -565,7 +570,96 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
         </div>
       </section>
 
+      {/* 7. LATEST NEWS & ANNOUNCEMENTS (BRITISH BOARD NEWS - DIRECT FROM BRITISH-BOARD.UK/NEWS) */}
+      <section id="news" className="py-20 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-300 shadow-2xs">
+                <Newspaper className="w-3.5 h-3.5 text-[#001E6D]" />
+                <span className="text-xs uppercase tracking-widest text-[#001E6D] font-bold">
+                  Official Board Dispatches
+                </span>
+              </div>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#001E6D] font-bold">
+                Latest News &amp; Updates
+              </h2>
+              <div className="w-16 h-1 bg-[#D90025]" />
+              <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">
+                See The Most Recent News, institutional accreditations, and global developments from The British Board.
+              </p>
+            </div>
 
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => onNavigate('contact')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-[#001E6D] text-[#001E6D] hover:text-white border border-slate-300 rounded-md text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-xs cursor-pointer group"
+              >
+                <span>Media &amp; Inquiries</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+          </div>
+
+          {/* News Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {LATEST_NEWS_ITEMS.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedNewsItem(item)}
+                className="bg-white border border-slate-200 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#001E6D] hover:shadow-xl transition-all duration-300 shadow-sm group cursor-pointer"
+              >
+                <div>
+                  {/* Thumbnail Cover */}
+                  <div className="relative h-52 overflow-hidden bg-slate-900">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700 ease-out opacity-95 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                    
+                    <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#001E6D] text-white text-[10px] uppercase tracking-wider font-bold rounded-xs shadow-md">
+                      {item.badge || item.category}
+                    </div>
+
+                    <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 text-white text-xs font-medium">
+                      <Calendar className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                      <span className="text-slate-200 text-[11px] font-mono">{item.date}</span>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6 space-y-3">
+                    <span className="text-[10px] uppercase tracking-widest text-[#D90025] font-bold block">
+                      {item.category}
+                    </span>
+
+                    <h3 className="font-serif text-lg font-bold text-[#001E6D] leading-snug group-hover:text-[#D90025] transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                      {item.summary}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="px-6 pb-6 pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-bold text-[#001E6D] flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read Full Dispatch</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#D90025]" />
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-slate-50 group-hover:bg-[#001E6D] group-hover:text-white text-[#001E6D] border border-slate-200 flex items-center justify-center transition-colors">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 8. WHY CHOOSE THE BRITISH BOARD? */}
       <section className="py-20 bg-slate-50">
@@ -681,6 +775,85 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
           </div>
         </div>
       </section>
+
+      {/* News Detail Modal */}
+      {selectedNewsItem && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
+          <div className="relative w-full max-w-2xl bg-white rounded-lg shadow-2xl overflow-hidden border border-slate-200 max-h-[90vh] flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 bg-[#001E6D] text-white">
+              <div className="flex items-center gap-2">
+                <Newspaper className="w-4 h-4 text-amber-300" />
+                <span className="text-xs uppercase tracking-widest font-bold">
+                  The British Board · News &amp; Dispatches
+                </span>
+              </div>
+              <button
+                onClick={() => setSelectedNewsItem(null)}
+                className="p-1 text-slate-300 hover:text-white rounded-sm hover:bg-white/10 transition-colors cursor-pointer"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Content Scrollable */}
+            <div className="p-6 overflow-y-auto space-y-5">
+              <div className="relative h-64 sm:h-72 w-full rounded-md overflow-hidden bg-slate-900 border border-slate-200">
+                <img
+                  src={selectedNewsItem.image}
+                  alt={selectedNewsItem.title}
+                  className="w-full h-full object-contain bg-slate-950"
+                />
+              </div>
+
+              <div className="flex items-center gap-3 text-xs text-slate-500 pb-2 border-b border-slate-100">
+                <span className="px-2.5 py-0.5 bg-[#001E6D] text-white text-[10px] font-bold uppercase rounded-xs">
+                  {selectedNewsItem.badge || selectedNewsItem.category}
+                </span>
+                <span className="flex items-center gap-1 font-mono">
+                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                  <span>{selectedNewsItem.date}</span>
+                </span>
+              </div>
+
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#001E6D] leading-snug">
+                {selectedNewsItem.title}
+              </h3>
+
+              <p className="text-sm text-slate-700 leading-relaxed font-medium">
+                {selectedNewsItem.summary}
+              </p>
+
+              {selectedNewsItem.fullContent && (
+                <div className="p-4 bg-slate-50 border border-slate-200 rounded-md text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {selectedNewsItem.fullContent}
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer Actions */}
+            <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <button
+                onClick={() => setSelectedNewsItem(null)}
+                className="w-full sm:w-auto px-5 py-2.5 bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 text-xs font-semibold uppercase rounded-md transition-colors cursor-pointer"
+              >
+                Close
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedNewsItem(null);
+                  onNavigate('contact');
+                }}
+                className="w-full sm:w-auto px-6 py-2.5 bg-[#D90025] hover:bg-[#B5001F] text-white text-xs font-bold uppercase tracking-wider rounded-md shadow-md transition-colors cursor-pointer flex items-center justify-center gap-2"
+              >
+                <span>Inquire About This Announcement</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
