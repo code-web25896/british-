@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
 import logoHeader from '../assets/images/logo_header.jpg';
 import {
   Menu,
   X,
-  Globe,
   ChevronRight,
   Phone,
-  ExternalLink,
   Sparkles,
   Home,
   ShieldCheck,
   Target,
   BookOpen,
-  GraduationCap,
   Camera,
   PhoneCall,
-  Award
 } from 'lucide-react';
 
 interface NavbarProps {
@@ -31,31 +27,17 @@ export const Navbar: React.FC<NavbarProps> = ({
   currentRoute,
   onNavigate,
   language,
-  onLanguageChange,
 }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const t = translations[language];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navItems: { route: PageRoute; label: string; icon: React.ReactNode }[] = [
-    { route: 'home', label: t.nav.home, icon: <Home className="w-4 h-4 text-[#C6A56B]" /> },
-    { route: 'about', label: t.nav.about, icon: <ShieldCheck className="w-4 h-4 text-[#C6A56B]" /> },
-    { route: 'mission-vision', label: t.nav.missionVision, icon: <Target className="w-4 h-4 text-[#C6A56B]" /> },
-    { route: 'standards', label: t.nav.standards, icon: <BookOpen className="w-4 h-4 text-[#C6A56B]" /> },
-    { route: 'gallery', label: t.nav.gallery, icon: <Camera className="w-4 h-4 text-[#C6A56B]" /> },
+    { route: 'home', label: t.nav.home, icon: <Home className="w-4 h-4 text-[#001E6D]" /> },
+    { route: 'about', label: t.nav.about, icon: <ShieldCheck className="w-4 h-4 text-[#001E6D]" /> },
+    { route: 'mission-vision', label: t.nav.missionVision, icon: <Target className="w-4 h-4 text-[#001E6D]" /> },
+    { route: 'standards', label: t.nav.standards, icon: <BookOpen className="w-4 h-4 text-[#001E6D]" /> },
+    { route: 'gallery', label: t.nav.gallery, icon: <Camera className="w-4 h-4 text-[#001E6D]" /> },
   ];
 
   const handleNavClick = (route: PageRoute) => {
@@ -65,71 +47,77 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      <header className="sticky top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm transition-all duration-300">
+      {/* Header positioned STATIC with full width adjustment */}
+      <header className="static w-full max-w-full bg-white border-b border-slate-200 shadow-sm overflow-hidden">
         {/* Top Institutional British Announcement & Contact Bar */}
-        <div className="bg-[#001E6D] text-white py-2 px-4 text-xs">
-          <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <div className="bg-[#001E6D] text-white py-1.5 px-3 sm:px-4 text-xs w-full max-w-full">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4 min-w-0">
             {/* Left: Official UK Accreditation Body Info */}
-            <div className="flex items-center gap-2 truncate">
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#D90025] text-white shadow-xs shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-[#D90025] text-white shadow-xs shrink-0 whitespace-nowrap">
                 <span>🇬🇧</span>
-                <span>UK Accreditation Body</span>
+                <span>UK Accreditation</span>
               </span>
               <div className="hidden sm:flex items-center gap-1.5 font-medium text-slate-200 text-[11px] truncate">
-                <Sparkles className="w-3 h-3 text-[#C6A56B] shrink-0" />
-                <span className="truncate">The British Board · Recognized Education & Training Accreditation Body</span>
+                <Sparkles className="w-3 h-3 text-amber-300 shrink-0" />
+                <span className="truncate">The British Board · Recognized Education &amp; Training Accreditation Body</span>
               </div>
             </div>
 
             {/* Right: Official Direct Contact & Verification Link */}
-            <div className="flex items-center gap-4 shrink-0 text-xs font-medium">
+            <div className="flex items-center gap-2 sm:gap-4 shrink-0 text-xs font-medium">
               <span className="hidden md:inline text-[11px] text-slate-300">
                 Hubs: London · Paris · Tunis
               </span>
               <span className="text-slate-500 hidden md:inline">|</span>
               <a
                 href="tel:+447497275861"
-                className="hover:text-amber-300 transition-colors flex items-center gap-1.5 text-white font-semibold"
+                className="hover:text-amber-300 transition-colors flex items-center gap-1 text-white font-semibold text-[11px] sm:text-xs whitespace-nowrap"
                 title="Direct Phone Line"
               >
-                <Phone className="w-3.5 h-3.5 text-[#C6A56B]" />
+                <Phone className="w-3 h-3 text-[#D90025] shrink-0" />
                 <span className="hidden sm:inline text-[10px] uppercase tracking-wider text-slate-300 font-normal">Headquarters:</span>
-                <span className="tabular-nums">+44 7497 275861</span>
+                <span className="tabular-nums font-mono">+44 7497 275861</span>
               </a>
             </div>
           </div>
         </div>
 
         {/* British Flag Tri-Color Accent Stripe */}
-        <div className="h-[3px] w-full bg-gradient-to-r from-[#001E6D] via-[#D90025] to-[#001E6D]" />
+        <div className="h-[3px] w-full flex">
+          <div className="h-full flex-1 bg-[#001E6D]" />
+          <div className="h-full w-20 bg-white" />
+          <div className="h-full flex-1 bg-[#D90025]" />
+        </div>
 
-        {/* Main Navbar with Large Official Logo */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex items-center justify-between gap-6">
-            {/* Zone 1: Big Official Logo & Title */}
+        {/* Main Navbar with Large Official Logo & Adaptive Mobile Width */}
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 w-full max-w-full">
+          <div className="flex items-center justify-between gap-2 sm:gap-6 min-w-0">
+            
+            {/* Zone 1: Big Official Logo & Title with Flex-Shrink Safety on Mobile */}
             <button
               onClick={() => handleNavClick('home')}
-              className="flex items-center gap-3.5 text-left focus:outline-none group cursor-pointer shrink-0"
+              className="flex items-center gap-2 sm:gap-3.5 text-left focus:outline-none group cursor-pointer min-w-0 flex-1 sm:flex-none overflow-hidden"
               aria-label="The British Board Home"
             >
-              <div className="h-14 sm:h-18 md:h-20 w-auto flex items-center justify-center">
+              <div className="h-12 sm:h-16 md:h-20 w-auto flex items-center justify-center shrink-0">
                 <img
                   src={logoHeader}
                   alt="The British Board"
                   className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif font-black text-lg sm:text-2xl md:text-3xl text-[#001E6D] tracking-tight leading-none group-hover:text-[#D90025] transition-colors">
+              <div className="flex flex-col min-w-0 overflow-hidden">
+                <span className="font-serif font-black text-sm sm:text-2xl md:text-3xl text-[#001E6D] tracking-tight leading-tight group-hover:text-[#D90025] transition-colors truncate">
                   THE BRITISH BOARD
                 </span>
-                <span className="text-[10px] sm:text-xs font-bold text-[#D90025] tracking-widest uppercase mt-1">
-                  Education & Training Accreditation Organization
+                <span className="text-[8px] sm:text-xs font-bold text-[#D90025] tracking-tight sm:tracking-widest uppercase leading-tight truncate">
+                  Education &amp; Training Accreditation
                 </span>
               </div>
             </button>
 
-            {/* Zone 2: Navigation Links */}
+            {/* Zone 2: Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold">
               {navItems.map((item) => {
                 const isActive = currentRoute === item.route;
@@ -152,12 +140,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               })}
             </nav>
 
-            {/* Zone 3: Primary Action */}
-            <div className="flex items-center gap-3 shrink-0">
-              {/* Primary Nav Action: Official Contact */}
+            {/* Zone 3: Actions & Mobile Toggle */}
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              {/* Primary Nav Action: Official Apply/Contact */}
               <button
                 onClick={() => handleNavClick('contact')}
-                className="hidden sm:inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold tracking-wider uppercase transition-all duration-300 rounded-md cursor-pointer whitespace-nowrap shrink-0 shadow-md bg-[#D90025] hover:bg-[#B5001F] text-white border border-[#B5001F]"
+                className="hidden sm:inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-bold tracking-wider uppercase transition-all duration-300 rounded-md cursor-pointer whitespace-nowrap shrink-0 shadow-md bg-[#D90025] hover:bg-[#B5001F] text-white border border-[#B5001F]"
               >
                 <ChevronRight className="w-3.5 h-3.5" />
                 <span>Contact Us</span>
@@ -166,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Mobile Menu Toggle Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-md text-[#001E6D] hover:bg-slate-100 focus:outline-none"
+                className="lg:hidden p-2 rounded-md text-[#001E6D] hover:bg-slate-100 focus:outline-none shrink-0"
                 aria-label="Toggle mobile menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -190,20 +178,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div>
               {/* Header */}
               <div className="flex items-center justify-between pb-5 border-b border-slate-200">
-                <div className="flex items-center gap-3">
-                  <img src={logoHeader} alt="The British Board" className="h-12 w-auto object-contain" />
-                  <div className="flex flex-col">
-                    <span className="font-serif text-sm font-bold text-[#001E6D]">
+                <div className="flex items-center gap-3 min-w-0">
+                  <img src={logoHeader} alt="The British Board" className="h-12 w-auto object-contain shrink-0" />
+                  <div className="flex flex-col min-w-0">
+                    <span className="font-serif text-sm font-bold text-[#001E6D] truncate">
                       THE BRITISH BOARD
                     </span>
-                    <span className="text-[9px] text-[#D90025] font-semibold tracking-wider uppercase">
+                    <span className="text-[9px] text-[#D90025] font-semibold tracking-wider uppercase truncate">
                       Accreditation Body
                     </span>
                   </div>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-1.5 text-slate-500 hover:text-slate-800 rounded-md"
+                  className="p-1.5 text-slate-500 hover:text-slate-800 rounded-md shrink-0 ml-2"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -250,15 +238,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                   href="tel:+447497275861"
                   className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#001E6D] text-white rounded-md font-semibold text-xs shadow-sm tracking-wider"
                 >
-                  <PhoneCall className="w-3.5 h-3.5 text-[#C6A56B]" />
+                  <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
                   <span>Call: +44 7497 275861</span>
                 </a>
 
                 <button
                   onClick={() => handleNavClick('contact')}
-                  className="flex items-center justify-center w-full px-4 py-2.5 text-xs font-bold tracking-wider uppercase bg-[#D90025] text-white rounded-md hover:bg-[#B5001F] transition-colors shadow-sm"
+                  className="flex items-center justify-center w-full px-4 py-2.5 text-xs font-bold tracking-wider uppercase bg-[#D90025] text-white rounded-md hover:bg-[#B5001F] transition-colors shadow-sm cursor-pointer"
                 >
-                  Contact Us
+                  Apply for Accreditation
                 </button>
               </div>
             </div>

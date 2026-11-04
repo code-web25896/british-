@@ -131,7 +131,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-800 selection:bg-[#001E6D] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-slate-800 selection:bg-[#001E6D] selection:text-white w-full max-w-full overflow-x-hidden">
       {/* Top Navigation */}
       <Navbar
         currentRoute={currentRoute}
@@ -141,7 +141,7 @@ export default function App() {
       />
 
       {/* Main Page Content */}
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {currentRoute === 'home' && (
           <HomePage onNavigate={handleNavigate} language={language} />
         )}

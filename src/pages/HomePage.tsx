@@ -116,9 +116,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
   };
 
   return (
-    <div className="w-full bg-white text-slate-800">
+    <div className="w-full max-w-full overflow-x-hidden bg-white text-slate-800">
       {/* 1. HERO SECTION: CLEAN WHITE OFFICIAL BRITISH BOARD BANNER WITH CERTIFICATE CHECKER */}
-      <section className="relative w-full">
+      <section className="relative w-full max-w-full overflow-hidden">
         <HeroCarousel onNavigate={onNavigate} language={language} />
       </section>
 

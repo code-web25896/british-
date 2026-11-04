@@ -22,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-[#001438] text-slate-300 border-t border-slate-700">
+    <footer className="w-full max-w-full overflow-hidden bg-[#001438] text-slate-300 border-t border-slate-700">
       {/* British Tri-Color Accent Ribbon */}
       <div className="h-1.5 w-full flex">
         <div className="h-full flex-1 bg-[#001E6D]" />
@@ -34,24 +34,24 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           
           {/* Column 1: Institutional Wordmark & Mission with LARGE LOGO */}
-          <div className="lg:col-span-5 space-y-5">
-            <div className="flex items-center gap-4">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden bg-white p-1 border-2 border-slate-300 shadow-md flex items-center justify-center shrink-0">
+          <div className="lg:col-span-5 space-y-5 min-w-0">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-lg overflow-hidden bg-white p-1 border-2 border-slate-300 shadow-md flex items-center justify-center shrink-0">
                 <img
                   src={logoHeader}
                   alt="The British Board Official Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#D90025] block">
+              <div className="min-w-0">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#D90025] block truncate">
                   🇬🇧 Recognized UK Accreditation Body
                 </span>
-                <h3 className="font-serif font-bold text-xl text-white tracking-tight">
+                <h3 className="font-serif font-bold text-lg sm:text-xl text-white tracking-tight truncate">
                   The British Board
                 </h3>
-                <p className="text-xs text-slate-300 uppercase tracking-wider font-semibold">
-                  Education &amp; Training Accreditation Organization
+                <p className="text-[11px] sm:text-xs text-slate-300 uppercase tracking-wider font-semibold truncate">
+                  Education &amp; Training Accreditation
                 </p>
               </div>
             </div>
