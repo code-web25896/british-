@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Language, PageRoute, CertificateRecord } from '../types';
 import { OFFICIAL_CERTIFICATES } from '../data/siteData';
 import logoHeader from '../assets/images/logo_header.jpg';
@@ -13,7 +13,10 @@ import {
   FileCheck2,
   Sparkles,
   X,
-  AlertCircle
+  AlertCircle,
+  Printer,
+  Calendar,
+  GraduationCap
 } from 'lucide-react';
 
 interface HeroCarouselProps {
@@ -23,11 +26,26 @@ interface HeroCarouselProps {
 
 export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
   const [certQuery, setCertQuery] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [verificationResult, setVerificationResult] = useState<{
     status: 'idle' | 'success' | 'not_found';
     code?: string;
     certificate?: CertificateRecord;
   }>({ status: 'idle' });
+
+  // Handle ESC key to close popup modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsModalOpen(false);
+      }
+    };
+    if (isModalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen]);
+
 
   const handleVerify = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +74,30 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
         code: query,
       });
     }
+    setIsModalOpen(true);
   };
+
+  const handleSelectCode = (code: string) => {
+    setCertQuery(code);
+    const cleanQuery = code.toUpperCase().replace(/\s+/g, '');
+    const cleanQueryAlphaNum = code.toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+    const found = OFFICIAL_CERTIFICATES.find((cert) => {
+      const cleanCertCode = cert.code.toUpperCase().replace(/\s+/g, '');
+      const cleanCertAlphaNum = cert.code.toUpperCase().replace(/[^A-Z0-9]/g, '');
+      return cleanCertCode === cleanQuery || cleanCertAlphaNum === cleanQueryAlphaNum;
+    });
+
+    if (found) {
+      setVerificationResult({
+        status: 'success',
+        code: found.code,
+        certificate: found,
+      });
+      setIsModalOpen(true);
+    }
+  };
+
 
 
   return (
@@ -202,128 +243,60 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 </button>
               </form>
 
-              {/* Verification Modal / Result Feedback */}
+              {/* Quick Card Status Banner with button to re-open popup */}
               {verificationResult.status === 'success' && verificationResult.certificate && (
-                <div className="mt-4 p-4 sm:p-5 bg-emerald-50 border-2 border-emerald-400 rounded-lg text-xs space-y-3 animate-in fade-in max-w-full shadow-md">
-                  <div className="flex items-start justify-between gap-2 border-b border-emerald-200 pb-2.5">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <div className="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                        <CheckCircle2 className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] uppercase tracking-wider font-extrabold text-emerald-700 block">
-                          🎉 Félicitations · Official Verification
-                        </span>
-                        <h4 className="font-serif text-sm font-bold text-emerald-950 leading-tight">
-                          Certificat Authentique &amp; Enregistré
-                        </h4>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => setVerificationResult({ status: 'idle' })}
-                      className="text-emerald-700 hover:text-emerald-950 cursor-pointer p-1 rounded hover:bg-emerald-100 transition-colors shrink-0"
-                      title="Fermer"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  <div className="space-y-2 text-slate-800 text-[11px] sm:text-xs bg-white/90 p-3 rounded-md border border-emerald-200 shadow-2xs">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-1.5 border-b border-slate-100 gap-1">
-                      <span className="text-slate-500 font-medium">Nom &amp; Prénom (Student) :</span>
-                      <strong className="font-bold text-[#001E6D] text-xs sm:text-sm tracking-wide">
+                <div className="mt-4 p-3 bg-emerald-50 border border-emerald-300 rounded-lg text-xs flex items-center justify-between gap-2 shadow-2xs">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <div className="min-w-0">
+                      <p className="font-bold text-emerald-950 truncate">
                         {verificationResult.certificate.studentName}
-                      </strong>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-1.5 border-b border-slate-100 gap-1">
-                      <span className="text-slate-500 font-medium">Code Certificat :</span>
-                      <span className="font-mono font-bold bg-[#001E6D] text-white px-2 py-0.5 rounded text-[11px] tracking-wider w-fit">
-                        {verificationResult.certificate.code}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-1.5 border-b border-slate-100 gap-1">
-                      <span className="text-slate-500 font-medium">N° Passeport :</span>
-                      <strong className="font-mono text-slate-800 font-semibold">
-                        {verificationResult.certificate.passportNumber}
-                      </strong>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-1.5 border-b border-slate-100 gap-1">
-                      <span className="text-slate-500 font-medium">Spécialité :</span>
-                      <strong className="text-[#D90025] font-semibold">
-                        {verificationResult.certificate.specialty}
-                      </strong>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-1.5 border-b border-slate-100 gap-1">
-                      <span className="text-slate-500 font-medium">Année de Promotion :</span>
-                      <strong className="text-slate-700 font-mono font-semibold">
-                        {verificationResult.certificate.year}
-                      </strong>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-0.5">
-                      <span className="text-slate-500 font-medium">Statut Officiel :</span>
-                      <span className="inline-flex items-center gap-1.5 text-emerald-700 font-bold text-[10px] uppercase">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                        Validé &amp; Actif au Registre UK
-                      </span>
+                      </p>
+                      <p className="text-[10px] text-emerald-700 truncate font-mono">
+                        {verificationResult.certificate.code} · Validé
+                      </p>
                     </div>
                   </div>
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(true)}
+                    className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px] rounded cursor-pointer whitespace-nowrap shadow-xs"
+                  >
+                    Voir Popup
+                  </button>
                 </div>
               )}
 
-              {verificationResult.status === 'not_found' && (
-                <div className="mt-4 p-4 sm:p-5 bg-rose-50 border-2 border-rose-300 rounded-lg text-xs space-y-2.5 max-w-full shadow-sm animate-in fade-in">
-                  <div className="flex items-center justify-between text-rose-900 font-bold border-b border-rose-200 pb-2">
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full bg-rose-600 text-white flex items-center justify-center shrink-0">
-                        <AlertCircle className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] uppercase tracking-wider text-rose-600 block">
-                          Erreur de Vérification
-                        </span>
-                        <span className="font-serif text-xs sm:text-sm font-bold text-rose-950">
-                          Certificat Non Existant
-                        </span>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => setVerificationResult({ status: 'idle' })}
-                      className="text-rose-700 hover:text-rose-950 cursor-pointer p-1 rounded hover:bg-rose-100 transition-colors"
-                      title="Fermer"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
+              {verificationResult.status === 'not_found' && !isModalOpen && (
+                <div className="mt-4 p-3 bg-rose-50 border border-rose-300 rounded-lg text-xs flex items-center justify-between gap-2 shadow-2xs">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
+                    <span className="text-[11px] text-rose-800 font-semibold truncate">
+                      Certificat non existant
+                    </span>
                   </div>
-                  <p className="text-slate-700 text-[11px] sm:text-xs leading-relaxed">
-                    Aucun certificat valide n'a été trouvé dans le registre officiel pour le code :{' '}
-                    <strong className="font-mono text-rose-700 bg-rose-100 px-1.5 py-0.5 rounded border border-rose-200 break-all">
-                      "{verificationResult.code}"
-                    </strong>.
-                  </p>
-                  <p className="text-slate-500 text-[10px] sm:text-[11px] leading-relaxed">
-                    Veuillez vérifier l'exactitude du code saisi (ex : <span className="font-mono font-bold text-slate-700">BBC-2026-000125</span>) ou contacter l'administration de The British Board :{' '}
-                    <a href="tel:+447497275861" className="text-[#001E6D] font-bold underline">+44 7497 275861</a>.
-                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(true)}
+                    className="px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white font-bold text-[10px] rounded cursor-pointer whitespace-nowrap"
+                  >
+                    Détails
+                  </button>
                 </div>
               )}
 
               {/* Sample test codes helper */}
               <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-1 text-[11px] text-slate-500">
                 <span>Codes d'exemple :</span>
-                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => setCertQuery('BBC-2026-000125')}>
+                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => handleSelectCode('BBC-2026-000125')}>
                   BBC-2026-000125
                 </span>
                 <span>·</span>
-                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => setCertQuery('BBC-2026-000126')}>
+                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => handleSelectCode('BBC-2026-000126')}>
                   BBC-2026-000126
                 </span>
                 <span>·</span>
-                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => setCertQuery('BBC-2026-000130')}>
+                <span className="font-mono text-[#001E6D] font-bold cursor-pointer hover:underline" onClick={() => handleSelectCode('BBC-2026-000130')}>
                   BBC-2026-000130
                 </span>
               </div>
@@ -353,6 +326,239 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
           </div>
         </div>
       </div>
+
+      {/* ======================================================== */}
+      {/* PRO POPUP MODAL: OFFICIALLY VERIFIED CERTIFICATE (SUCCESS) */}
+      {/* ======================================================== */}
+      {isModalOpen && verificationResult.status === 'success' && verificationResult.certificate && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border-2 border-slate-300 overflow-hidden my-auto animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* British Tri-Color Top Accent Bar */}
+            <div className="h-2 w-full flex">
+              <div className="h-full flex-1 bg-[#001E6D]" />
+              <div className="h-full w-20 bg-white" />
+              <div className="h-full flex-1 bg-[#D90025]" />
+            </div>
+
+            {/* Modal Header */}
+            <div className="p-5 sm:p-6 pb-4 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200 flex items-start justify-between gap-3">
+              <div className="flex items-center gap-3.5 min-w-0">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-white border-2 border-slate-200 p-1.5 shrink-0 shadow-sm flex items-center justify-center">
+                  <img src={logoHeader} alt="British Board Seal" className="w-full h-full object-contain" />
+                </div>
+                <div className="min-w-0">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-300 text-[10px] font-bold text-[#001E6D] uppercase tracking-wider">
+                    <span>🇬🇧</span>
+                    <span>Official Registry Attestation</span>
+                  </div>
+                  <h3 className="font-serif text-lg sm:text-2xl font-bold text-[#001E6D] leading-tight mt-1">
+                    The British Board
+                  </h3>
+                  <p className="text-xs text-slate-500 font-medium">
+                    Education &amp; Training Accreditation Organization · UK
+                  </p>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center cursor-pointer transition-colors shrink-0 shadow-2xs"
+                title="Fermer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Congratulatory Ribbon */}
+            <div className="bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 text-white px-5 sm:px-6 py-3.5 flex items-center justify-between gap-3 shadow-inner">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-white/20 border border-white/30 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-100" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase tracking-widest font-extrabold text-emerald-200 block">
+                    Vérification Réussie · Official Record
+                  </span>
+                  <h4 className="font-serif text-sm sm:text-base font-bold text-white leading-tight">
+                    🎉 Félicitations ! Certificat Authentique &amp; Validé
+                  </h4>
+                </div>
+              </div>
+              <span className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded bg-white/20 text-[10px] font-mono font-bold tracking-wider uppercase">
+                Status: Active
+              </span>
+            </div>
+
+            {/* Official Student Certificate Details Card */}
+            <div className="p-5 sm:p-6 space-y-4">
+              {/* Prominent Student Name Card */}
+              <div className="text-center p-4 sm:p-5 rounded-xl bg-slate-50 border-2 border-emerald-300 shadow-xs relative overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-1 bg-emerald-500 rounded-b" />
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-widest font-bold text-slate-500 block mb-1">
+                  Titulaire du Certificat (Student Name)
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#001E6D] tracking-wide">
+                  {verificationResult.certificate.studentName}
+                </h2>
+                <div className="inline-flex items-center gap-2 mt-2.5 px-3.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs font-bold font-mono shadow-2xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                  Code Certificat : {verificationResult.certificate.code}
+                </div>
+              </div>
+
+              {/* Data Grid: Passport, Specialty, Year, Accredited Center */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                {/* Passport Number */}
+                <div className="p-3 bg-white border border-slate-200 rounded-lg shadow-2xs">
+                  <span className="text-[11px] font-medium text-slate-500 block">N° Passeport / ID :</span>
+                  <span className="font-mono text-sm sm:text-base font-bold text-slate-900 mt-0.5 block">
+                    {verificationResult.certificate.passportNumber}
+                  </span>
+                </div>
+
+                {/* Promotion Year */}
+                <div className="p-3 bg-white border border-slate-200 rounded-lg shadow-2xs">
+                  <span className="text-[11px] font-medium text-slate-500 block">Année de Promotion :</span>
+                  <span className="font-serif text-sm sm:text-base font-bold text-[#001E6D] mt-0.5 flex items-center gap-1.5">
+                    <Calendar className="w-4 h-4 text-[#D90025]" />
+                    {verificationResult.certificate.year}
+                  </span>
+                </div>
+
+                {/* Specialty */}
+                <div className="sm:col-span-2 p-3.5 bg-white border border-slate-200 rounded-lg shadow-2xs">
+                  <span className="text-[11px] font-medium text-slate-500 block">Spécialité / Qualification :</span>
+                  <div className="flex items-center gap-2 mt-1">
+                    <GraduationCap className="w-5 h-5 text-[#D90025] shrink-0" />
+                    <span className="font-serif text-base font-bold text-[#D90025]">
+                      {verificationResult.certificate.specialty}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Accredited Center */}
+                <div className="sm:col-span-2 p-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
+                  <span className="text-[11px] font-medium text-slate-500 block">Centre de Formation Accrédité :</span>
+                  <span className="font-semibold text-xs sm:text-sm text-[#001E6D] mt-0.5 block">
+                    {verificationResult.certificate.accreditedCenter}
+                  </span>
+                </div>
+              </div>
+
+              {/* Official Attestation Footnote */}
+              <div className="p-3 bg-emerald-50/70 border border-emerald-200 rounded-lg flex items-center justify-between text-[11px] text-emerald-900">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
+                  <span className="font-semibold">UK Registry Reference: UKPRN 10062939</span>
+                </div>
+                <span className="font-bold uppercase tracking-wider text-[10px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
+                  100% Authentifié
+                </span>
+              </div>
+            </div>
+
+            {/* Modal Actions Footer */}
+            <div className="p-4 sm:p-5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-md text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer shadow-2xs"
+              >
+                <Printer className="w-4 h-4 text-[#001E6D]" />
+                <span>Imprimer l'Attestation</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 bg-[#001E6D] hover:bg-[#00144D] text-white rounded-md text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer shadow-md"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* PRO POPUP MODAL: CERTIFICATE NOT FOUND (ERROR) */}
+      {/* ======================================================== */}
+      {isModalOpen && verificationResult.status === 'not_found' && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl border-2 border-rose-300 overflow-hidden my-auto animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top red accent bar */}
+            <div className="h-2 w-full bg-[#D90025]" />
+
+            {/* Header */}
+            <div className="p-5 pb-4 bg-rose-50 border-b border-rose-200 flex items-start justify-between gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <AlertCircle className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-rose-700 block">
+                    Registre Officiel UK
+                  </span>
+                  <h3 className="font-serif text-lg font-bold text-rose-950 leading-tight">
+                    Certificat Non Existant
+                  </h3>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="text-rose-700 hover:text-rose-950 cursor-pointer p-1 rounded hover:bg-rose-100 transition-colors shrink-0"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="p-6 space-y-3 text-xs text-slate-700">
+              <p className="leading-relaxed">
+                Aucun enregistrement actif n'a été trouvé dans le registre officiel pour le code :
+              </p>
+              <div className="p-3 bg-rose-50/70 border border-rose-200 rounded-lg text-center font-mono font-bold text-sm text-rose-700 break-all">
+                "{verificationResult.code}"
+              </div>
+              <p className="text-slate-500 text-[11px] leading-relaxed">
+                Veuillez vérifier l'orthographe du code (ex: <span className="font-mono font-bold text-slate-700">BBC-2026-000125</span>) ou contacter l'administration de The British Board :
+              </p>
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-between text-xs">
+                <span className="font-medium text-slate-600">Assistance téléphonique :</span>
+                <a href="tel:+447497275861" className="font-bold text-[#001E6D] hover:underline font-mono">
+                  +44 7497 275861
+                </a>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="p-4 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-md text-xs font-bold uppercase tracking-wider cursor-pointer"
+              >
+                Fermer &amp; Réessayer
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+
