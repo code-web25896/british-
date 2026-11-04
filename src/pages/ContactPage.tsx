@@ -128,7 +128,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
 
               <div className="space-y-4 pt-4 border-t border-stone-800 text-xs">
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-sm bg-[#78163D] flex items-center justify-center shrink-0 text-[#C6A56B]">
+                  <div className="w-8 h-8 rounded-sm bg-[#001E6D] flex items-center justify-center shrink-0 text-white">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -136,16 +136,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
                       {t.contact.emailLabel}
                     </span>
                     <a
-                      href="mailto:contact@lacademie-internationale.com"
-                      className="text-stone-200 font-serif font-semibold hover:text-[#C6A56B] transition-colors"
+                      href="mailto:contact@britishboardofbeauty.com"
+                      className="text-stone-200 font-serif font-semibold hover:text-[#D90025] transition-colors"
                     >
-                      {t.contact.emailPlaceholder}
+                      contact@britishboardofbeauty.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-sm bg-[#78163D] flex items-center justify-center shrink-0 text-[#C6A56B]">
+                  <div className="w-8 h-8 rounded-sm bg-[#001E6D] flex items-center justify-center shrink-0 text-white">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -154,18 +154,18 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
                     </span>
                     <a
                       href="tel:+447497275861"
-                      className="text-stone-200 font-serif font-semibold hover:text-[#C6A56B] transition-colors tabular-nums block"
+                      className="text-stone-200 font-serif font-semibold hover:text-[#D90025] transition-colors tabular-nums block"
                     >
                       {t.contact.phonePlaceholder}
                     </a>
                     <span className="text-[11px] text-stone-400 mt-0.5 block">
-                      Ligne directe internationale & secrétariat pédagogique
+                      International direct line &amp; educational secretariat
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-sm bg-[#78163D] flex items-center justify-center shrink-0 text-[#C6A56B]">
+                  <div className="w-8 h-8 rounded-sm bg-[#001E6D] flex items-center justify-center shrink-0 text-white">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -180,21 +180,21 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
               </div>
 
               <div className="p-4 bg-stone-900 border border-stone-800 rounded-sm text-[11px] text-stone-400 leading-relaxed flex items-start gap-2">
-                <Shield className="w-4 h-4 text-[#C6A56B] shrink-0 mt-0.5" />
+                <Shield className="w-4 h-4 text-[#D90025] shrink-0 mt-0.5" />
                 <span>{t.contact.privacyNotice}</span>
               </div>
             </div>
 
             {/* Associated Academy reminder */}
-            <div className="bg-white p-6 border border-[#C6A56B]/25 rounded-sm shadow-sm space-y-2">
-              <span className="text-[10px] uppercase tracking-wider text-[#78163D] font-bold block">
-                Partner Training Hubs
+            <div className="bg-white p-6 border border-slate-200 rounded-sm shadow-sm space-y-2">
+              <span className="text-[10px] uppercase tracking-wider text-[#D90025] font-bold block">
+                Accredited Centers: France &amp; Africa
               </span>
-              <p className="font-serif text-sm font-semibold text-[#202020]">
+              <p className="font-serif text-sm font-semibold text-[#001E6D]">
                 Strategic Academic Partnership
               </p>
               <p className="text-xs text-stone-600 leading-relaxed">
-                Practical training and clinical examination facilities are organized in partnership with L’Académie Internationale de Beauté across Paris and Tunis campuses.
+                Practical training and clinical examination facilities are organized in partnership with accredited centers across France and Africa.
               </p>
             </div>
           </div>

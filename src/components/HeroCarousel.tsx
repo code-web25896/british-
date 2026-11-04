@@ -53,7 +53,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
           title: 'British Board Accredited Diploma in Aesthetics & Cosmetology',
           issueDate: 'Validated & Active',
           status: 'OFFICIALLY VERIFIED & ACTIVE IN REGISTRY',
-          accreditedCenter: 'L’Académie Internationale de Beauté (Paris · Tunis Hub)',
+          accreditedCenter: 'The International Academy of Beauty (France & Africa)',
           registryId: `BB-REG-${Math.floor(100000 + Math.random() * 900000)}`,
         },
       });
@@ -275,7 +275,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                     UK Headquarters · London
                   </span>
                   <span className="text-[10px] sm:text-[11px] text-slate-500 truncate block">
-                    Regional Hubs: Paris &amp; Tunis
+                    Accredited Centers: France &amp; Africa
                   </span>
                 </div>
               </div>

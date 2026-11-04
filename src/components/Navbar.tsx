@@ -67,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Right: Official Direct Contact & Verification Link */}
             <div className="flex items-center gap-2 sm:gap-4 shrink-0 text-xs font-medium">
               <span className="hidden md:inline text-[11px] text-slate-300">
-                Hubs: London · Paris · Tunis
+                London · France · Africa
               </span>
               <span className="text-slate-500 hidden md:inline">|</span>
               <a
@@ -204,10 +204,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   Strategic Academic Partner
                 </span>
                 <p className="font-serif text-xs font-semibold text-[#001E6D]">
-                  L’Académie Internationale de Beauté
+                  The International Academy of Beauty
                 </p>
                 <p className="text-[10px] text-slate-500 mt-0.5">
-                  Campuses: Paris (France) · Tunis (Tunisia)
+                  Accredited Centers: France &amp; Africa
                 </p>
               </div>
 

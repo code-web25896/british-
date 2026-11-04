@@ -42,12 +42,12 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               <div className="relative rounded-sm overflow-hidden border border-[#C6A56B]/50 shadow-2xl bg-[#202020]">
                 <img
                   src={ASSET_IMAGES.academie}
-                  alt="L'Académie Internationale de Beauté Training Atelier Paris & Tunis"
+                  alt="International Academy of Beauty Training Atelier France & Africa"
                   referrerPolicy="no-referrer"
                   className="w-full h-auto object-cover"
                 />
                 <div className="p-4 bg-[#202020] text-stone-200 border-t border-[#C6A56B]/30 flex items-center justify-between text-xs">
-                  <span>Paris & Tunis Campuses · Master Training</span>
+                  <span>France &amp; Africa Centers · Master Training</span>
                   <span className="text-[#C6A56B] font-medium">Strategic Partner</span>
                 </div>
               </div>
@@ -136,53 +136,53 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
           </div>
         </div>
 
-        {/* Strategic Partner Campuses: Paris & Tunis (SEO & Institutional Focus) */}
+        {/* Strategic Partner Centers: France & Africa */}
         <div className="bg-[#202020] text-white p-8 sm:p-12 rounded-sm border border-[#C6A56B]/40 shadow-2xl">
           <div className="max-w-3xl mb-10">
             <span className="text-xs uppercase tracking-widest text-[#C6A56B] font-bold block mb-2">
-              Strategic Partner Hubs · Paris & Tunis
+              Accredited Centers · France &amp; Africa
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-white">
-              Training Centers & Hubs of Excellence
+              Training Centers &amp; Centers of Excellence
             </h3>
             <div className="w-16 h-[2px] bg-[#C6A56B] my-3" />
             <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
-              In collaboration with the British Board of Aesthetics and Cosmetology, L’Académie Internationale de Beauté delivers premier beauty and aesthetic education across its two flagship partner metropolitan hubs.
+              In collaboration with the British Board of Aesthetics and Cosmetology, accredited partner centers deliver premier beauty and aesthetic education across France and Africa.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Campus 1: Paris */}
+            {/* Center 1: France */}
             <div className="p-6 bg-[#272727] border border-[#C6A56B]/30 rounded-sm space-y-4">
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-5 h-5 text-[#C6A56B]" />
                 <h4 className="font-serif text-lg font-semibold text-white">
-                  Campus Paris (France)
+                  France Center
                 </h4>
               </div>
               <p className="text-xs text-stone-300 leading-relaxed">
-                Advanced aesthetics workshops, international colorimetry masterclasses, and clinical dermocosmetic treatments in the world capital of refinement and elegance.
+                Advanced aesthetics workshops, international colorimetry masterclasses, and clinical dermocosmetic treatments in accordance with British standards.
               </p>
               <div className="pt-2 text-xs text-[#C6A56B] font-medium flex items-center justify-between">
                 <span>British Board Standards</span>
-                <span className="text-stone-400">Accredited Hub</span>
+                <span className="text-stone-400">Accredited Center</span>
               </div>
             </div>
 
-            {/* Campus 2: Tunis */}
+            {/* Center 2: Africa */}
             <div className="p-6 bg-[#272727] border border-[#C6A56B]/30 rounded-sm space-y-4">
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-5 h-5 text-[#C6A56B]" />
                 <h4 className="font-serif text-lg font-semibold text-white">
-                  Campus Tunis (Tunisia)
+                  Africa Center
                 </h4>
               </div>
               <p className="text-xs text-stone-300 leading-relaxed">
-                Major Mediterranean educational hub offering accredited vocational diploma programs and modern cosmetology certifications aligned with British Board standards.
+                Regional educational center offering accredited vocational diploma programs and modern cosmetology certifications aligned with British Board standards.
               </p>
               <div className="pt-2 text-xs text-[#C6A56B] font-medium flex items-center justify-between">
                 <span>British Board Standards</span>
-                <span className="text-stone-400">Accredited Hub</span>
+                <span className="text-stone-400">Accredited Center</span>
               </div>
             </div>
           </div>

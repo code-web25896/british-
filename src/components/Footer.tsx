@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({
                     L'Académie Internationale de Beauté
                   </p>
                   <p className="text-[11px] text-slate-300 mt-0.5">
-                    Accredited Training Hubs: Paris &amp; Tunis
+                    Accredited Centers: France &amp; Africa
                   </p>
                   <span className="text-[10px] text-emerald-400 font-medium flex items-center gap-1 mt-1">
                     <CheckCircle2 className="w-3 h-3" />
@@ -174,10 +174,10 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#D90025] shrink-0" />
                 <a
-                  href="mailto:contact@lacademie-internationale.com"
+                  href="mailto:contact@britishboardofbeauty.com"
                   className="hover:text-white transition-colors"
                 >
-                  contact@lacademie-internationale.com
+                  contact@britishboardofbeauty.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -192,7 +192,7 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#D90025] shrink-0 mt-0.5" />
                 <span className="text-slate-300 leading-snug">
-                  London (United Kingdom Headquarters) · International Hubs: Paris &amp; Tunis
+                  London (United Kingdom Headquarters) · Accredited Centers: France &amp; Africa
                 </span>
               </div>
             </div>
