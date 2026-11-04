@@ -81,3 +81,14 @@ export interface NewsItem {
   fullContent?: string;
   badge?: string;
 }
+
+export interface CertificateRecord {
+  code: string;
+  studentName: string;
+  specialty: string;
+  year: string;
+  passportNumber: string;
+  accreditedCenter?: string;
+  status?: string;
+}
+
