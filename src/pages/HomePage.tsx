@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import { Language, PageRoute, GalleryItem } from '../types';
+import React from 'react';
+import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
 import {
   ASSET_IMAGES,
   AREAS_OF_EXCELLENCE,
   EDUCATIONAL_STANDARDS,
-  PROGRAMS_CATALOG,
-  GALLERY_ITEMS,
 } from '../data/siteData';
 import {
   GraduationCap,
@@ -16,18 +14,14 @@ import {
   BookOpen,
   ShieldCheck,
   ArrowRight,
-  Maximize2,
-  LayoutGrid,
   TrendingUp,
   Globe,
-  Camera,
   Send,
   Compass,
   ArrowUpRight,
   Check,
 } from 'lucide-react';
 import { HeroCarousel } from '../components/HeroCarousel';
-import { LightboxModal } from '../components/LightboxModal';
 
 interface HomePageProps {
   onNavigate: (route: PageRoute) => void;
@@ -36,8 +30,6 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
   const t = translations[language];
-  const [activeProgramTab, setActiveProgramTab] = useState<'all' | 'aesthetics' | 'cosmetology' | 'institutional'>('all');
-  const [selectedGalleryItem, setSelectedGalleryItem] = useState<GalleryItem | null>(null);
 
   // Helper to map icon names
   const renderIcon = (name: string) => {
@@ -58,11 +50,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
         return <Award className="w-6 h-6 text-[#001E6D]" />;
     }
   };
-
-  const filteredPrograms =
-    activeProgramTab === 'all'
-      ? PROGRAMS_CATALOG
-      : PROGRAMS_CATALOG.filter((p) => p.category === activeProgramTab);
 
   return (
     <div className="w-full max-w-full overflow-x-hidden bg-white text-slate-800">
@@ -578,152 +565,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
         </div>
       </section>
 
-      {/* 7. PROGRAMS & PROFESSIONAL DEVELOPMENT PREVIEW */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-300">
-                <BookOpen className="w-3.5 h-3.5 text-[#001E6D]" />
-                <span className="text-xs uppercase tracking-widest text-[#001E6D] font-bold">
-                  {t.programs.kicker}
-                </span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#001E6D] font-bold">
-                {t.programs.title}
-              </h2>
-              <div className="w-16 h-1 bg-[#D90025]" />
-              <p className="text-sm text-slate-600 max-w-xl">
-                {t.programs.subtitle}
-              </p>
-            </div>
 
-            {/* Filter buttons */}
-            <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-50 border border-slate-200 rounded-md">
-              <button
-                onClick={() => setActiveProgramTab('all')}
-                className={`px-3.5 py-2 text-xs font-bold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeProgramTab === 'all'
-                    ? 'bg-[#001E6D] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <LayoutGrid className="w-3.5 h-3.5" />
-                <span>{t.programs.filterAll}</span>
-              </button>
-              <button
-                onClick={() => setActiveProgramTab('aesthetics')}
-                className={`px-3.5 py-2 text-xs font-bold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeProgramTab === 'aesthetics'
-                    ? 'bg-[#001E6D] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{t.programs.filterAesthetics}</span>
-              </button>
-              <button
-                onClick={() => setActiveProgramTab('cosmetology')}
-                className={`px-3.5 py-2 text-xs font-bold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeProgramTab === 'cosmetology'
-                    ? 'bg-[#001E6D] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Scissors className="w-3.5 h-3.5" />
-                <span>{t.programs.filterCosmetology}</span>
-              </button>
-              <button
-                onClick={() => setActiveProgramTab('institutional')}
-                className={`px-3.5 py-2 text-xs font-bold rounded-sm transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeProgramTab === 'institutional'
-                    ? 'bg-[#001E6D] text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <Award className="w-3.5 h-3.5" />
-                <span>{t.programs.filterInstitutional}</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Programs Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPrograms.slice(0, 3).map((prog) => {
-              const title = t.programs[prog.titleKey as keyof typeof t.programs] as string;
-              const sub = t.programs[prog.subtitleKey as keyof typeof t.programs] as string;
-              const desc = t.programs[prog.descKey as keyof typeof t.programs] as string;
-              const duration = t.programs[prog.durationKey as keyof typeof t.programs] as string;
-              const level = t.programs[prog.levelKey as keyof typeof t.programs] as string;
-
-              return (
-                <div
-                  key={prog.id}
-                  className="bg-white border border-slate-200 rounded-lg overflow-hidden flex flex-col justify-between hover:border-[#001E6D] hover:shadow-lg transition-all duration-300 shadow-sm group"
-                >
-                  <div>
-                    {/* Thumbnail */}
-                    <div className="relative h-48 overflow-hidden bg-slate-100">
-                      <img
-                        src={prog.image}
-                        alt={title}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                      />
-                      <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#001E6D] text-white text-[10px] uppercase tracking-wider font-bold rounded-xs shadow-md">
-                        {prog.category}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 space-y-3">
-                      <div className="text-xs text-slate-500 font-semibold">
-                        <span>{duration}</span>
-                        <span className="mx-1.5">·</span>
-                        <span className="text-[#D90025]">{level}</span>
-                      </div>
-
-                      <h3 className="font-serif text-lg font-bold text-[#001E6D] leading-snug">
-                        {title}
-                      </h3>
-
-                      <p className="text-xs text-slate-500 font-medium">
-                        {sub}
-                      </p>
-
-                      <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-                        {desc}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="px-6 pb-6 pt-2 border-t border-slate-100">
-                    <button
-                      onClick={() => onNavigate('programs')}
-                      className="w-full py-2.5 bg-slate-50 hover:bg-[#001E6D] text-[#001E6D] hover:text-white border border-slate-200 hover:border-[#001E6D] text-xs font-bold uppercase tracking-wider rounded-md transition-all flex items-center justify-center gap-2 cursor-pointer"
-                    >
-                      <BookOpen className="w-3.5 h-3.5" />
-                      <span>{t.common.learnMore}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="text-center mt-12">
-            <button
-              onClick={() => onNavigate('programs')}
-              className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#001E6D] text-white hover:bg-[#00144D] text-xs font-bold uppercase tracking-wider rounded-md transition-colors shadow-md cursor-pointer"
-            >
-              <GraduationCap className="w-4 h-4 text-white" />
-              <span>{t.common.viewAll} Programs</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* 8. WHY CHOOSE THE BRITISH BOARD? */}
       <section className="py-20 bg-slate-50">
@@ -803,75 +645,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
         </div>
       </section>
 
-      {/* 9. GALLERY PREVIEW */}
-      <section className="py-20 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-300">
-                <Camera className="w-3.5 h-3.5 text-[#001E6D]" />
-                <span className="text-xs uppercase tracking-widest text-[#001E6D] font-bold">
-                  {t.gallery.kicker}
-                </span>
-              </div>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#001E6D] font-bold">
-                {t.gallery.title}
-              </h2>
-              <div className="w-16 h-1 bg-[#D90025]" />
-              <p className="text-sm text-slate-600">
-                {t.gallery.subtitle}
-              </p>
-            </div>
-
-            <button
-              onClick={() => onNavigate('gallery')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-50 hover:bg-[#001E6D] text-[#001E6D] hover:text-white border border-slate-300 rounded-md text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer group shadow-xs"
-            >
-              <Camera className="w-3.5 h-3.5" />
-              <span>{t.common.viewAll} Gallery</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {GALLERY_ITEMS.slice(0, 4).map((item) => {
-              const itemTitle = t.gallery[item.titleKey as keyof typeof t.gallery] as string;
-              const itemLoc = t.gallery[item.locationKey as keyof typeof t.gallery] as string;
-
-              return (
-                <div
-                  key={item.id}
-                  onClick={() => setSelectedGalleryItem(item)}
-                  className="relative group rounded-lg overflow-hidden bg-slate-900 cursor-pointer shadow-md border border-slate-200 aspect-4/3"
-                >
-                  <img
-                    src={item.image}
-                    alt={itemTitle}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/30 to-transparent" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <span className="text-[10px] uppercase tracking-wider text-[#D90025] font-bold block mb-1">
-                      {itemLoc}
-                    </span>
-                    <h4 className="font-serif text-xs font-medium leading-snug line-clamp-2">
-                      {itemTitle}
-                    </h4>
-                  </div>
-
-                  <div className="absolute top-3 right-3 p-2 bg-[#001E6D] rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-                    <Maximize2 className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 10. CALL TO ACTION & INQUIRY BANNER (BRITISH NAVY & RED ACCENT) */}
+      {/* 9. CALL TO ACTION & INQUIRY BANNER (BRITISH NAVY & RED ACCENT) */}
       <section className="py-18 bg-[#001E6D] text-white relative overflow-hidden border-t-4 border-[#D90025]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20">
@@ -907,16 +681,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
           </div>
         </div>
       </section>
-
-      {/* Lightbox Modal */}
-      {selectedGalleryItem && (
-        <LightboxModal
-          item={selectedGalleryItem}
-          onClose={() => setSelectedGalleryItem(null)}
-          title={t.gallery[selectedGalleryItem.titleKey as keyof typeof t.gallery] as string}
-          location={t.gallery[selectedGalleryItem.locationKey as keyof typeof t.gallery] as string}
-        />
-      )}
     </div>
   );
 };

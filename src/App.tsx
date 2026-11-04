@@ -11,9 +11,7 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { MissionVisionPage } from './pages/MissionVisionPage';
 import { StandardsPage } from './pages/StandardsPage';
-import { ProgramsPage } from './pages/ProgramsPage';
 import { AcademiePage } from './pages/AcademiePage';
-import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { translations } from './i18n/translations';
@@ -39,13 +37,9 @@ export default function App() {
       case 'standards':
       case 'educational-standards':
         return 'standards';
-      case 'programs':
-        return 'programs';
       case 'academie':
       case 'academie-internationale':
         return 'academie';
-      case 'gallery':
-        return 'gallery';
       case 'contact':
         return 'contact';
       default:
@@ -88,14 +82,8 @@ export default function App() {
       case 'standards':
         pageTitle = `${t.nav.standards} | ${t.common.brandAbbr}`;
         break;
-      case 'programs':
-        pageTitle = `${t.nav.programs} | ${t.common.brandAbbr}`;
-        break;
       case 'academie':
         pageTitle = `L’Académie Internationale | ${t.common.brandAbbr}`;
-        break;
-      case 'gallery':
-        pageTitle = `${t.nav.gallery} | ${t.common.brandAbbr}`;
         break;
       case 'contact':
         pageTitle = `${t.nav.contact} | ${t.common.brandAbbr}`;
@@ -154,14 +142,8 @@ export default function App() {
         {currentRoute === 'standards' && (
           <StandardsPage onNavigate={handleNavigate} language={language} />
         )}
-        {currentRoute === 'programs' && (
-          <ProgramsPage onNavigate={handleNavigate} language={language} />
-        )}
         {currentRoute === 'academie' && (
           <AcademiePage onNavigate={handleNavigate} language={language} />
-        )}
-        {currentRoute === 'gallery' && (
-          <GalleryPage onNavigate={handleNavigate} language={language} />
         )}
         {currentRoute === 'contact' && (
           <ContactPage onNavigate={handleNavigate} language={language} />

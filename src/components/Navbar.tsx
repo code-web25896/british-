@@ -12,7 +12,6 @@ import {
   ShieldCheck,
   Target,
   BookOpen,
-  Camera,
   PhoneCall,
 } from 'lucide-react';
 
@@ -37,7 +36,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { route: 'about', label: t.nav.about, icon: <ShieldCheck className="w-4 h-4 text-[#001E6D]" /> },
     { route: 'mission-vision', label: t.nav.missionVision, icon: <Target className="w-4 h-4 text-[#001E6D]" /> },
     { route: 'standards', label: t.nav.standards, icon: <BookOpen className="w-4 h-4 text-[#001E6D]" /> },
-    { route: 'gallery', label: t.nav.gallery, icon: <Camera className="w-4 h-4 text-[#001E6D]" /> },
   ];
 
   const handleNavClick = (route: PageRoute) => {

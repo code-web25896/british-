@@ -126,7 +126,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
               <div className="p-2.5 sm:p-3 bg-slate-50 border border-slate-200 rounded-md flex items-center gap-2.5">
                 <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#001E6D] shrink-0" />
                 <span className="text-xs font-semibold text-slate-700 leading-tight">
-                  Accredited Partner Hubs
+                  Accredited Partner Centers
                 </span>
               </div>
             </div>

@@ -95,10 +95,10 @@ export const MissionVisionPage: React.FC<MissionVisionPageProps> = ({
             <div className="mt-8 pt-6 border-t border-stone-100 flex items-center justify-between">
               <span className="text-xs text-[#C6A56B] font-medium">Core Pillar 02</span>
               <button
-                onClick={() => onNavigate('programs')}
-                className="text-xs font-semibold text-[#78163D] hover:text-[#C6A56B] flex items-center gap-1"
+                onClick={() => onNavigate('standards')}
+                className="text-xs font-semibold text-[#78163D] hover:text-[#C6A56B] flex items-center gap-1 cursor-pointer"
               >
-                <span>Explore Programs</span>
+                <span>Accreditation Standards</span>
                 <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
               </button>
             </div>

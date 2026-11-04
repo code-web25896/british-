@@ -118,14 +118,6 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('gallery')}
-                  className="text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
-                >
-                  <span>Institutional Gallery</span>
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => onNavigate('contact')}
                   className="text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 font-bold text-[#D90025]"
                 >

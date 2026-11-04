@@ -24,9 +24,7 @@ export type PageRoute =
   | 'about'
   | 'mission-vision'
   | 'standards'
-  | 'programs'
   | 'academie'
-  | 'gallery'
   | 'contact';
 
 export interface AreaOfExcellence {
