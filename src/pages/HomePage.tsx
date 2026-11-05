@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Language, PageRoute, NewsItem } from '../types';
 import { translations } from '../i18n/translations';
 import {
-  ASSET_IMAGES,
   AREAS_OF_EXCELLENCE,
   EDUCATIONAL_STANDARDS,
   LATEST_NEWS_ITEMS,
@@ -196,120 +195,69 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
 
       {/* 3. ABOUT THE BRITISH BOARD SECTION */}
       <section id="about-section" className="py-20 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Column: Narrative prose with Institutional Pillars */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-300">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#001E6D]" />
-                  <span className="text-xs uppercase tracking-widest text-[#001E6D] font-bold">
-                    Official UK Institutional Authority
-                  </span>
-                </div>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#001E6D] font-bold leading-tight">
-                  About The British Board
-                </h2>
-                <div className="flex items-center gap-2 pt-1">
-                  <div className="w-16 h-1 bg-[#001E6D]" />
-                  <div className="w-6 h-1 bg-[#D90025]" />
-                </div>
-              </div>
-
-              <p className="text-slate-700 leading-relaxed text-base">
-                {t.about.p1}
-              </p>
-
-              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                {t.about.p2}
-              </p>
-
-              <p className="text-slate-500 leading-relaxed text-sm">
-                {t.about.p3}
-              </p>
-
-              {/* Three Institutional Tenets */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200">
-                <div className="p-4 bg-slate-50 border border-slate-200 rounded-md shadow-xs hover:border-[#001E6D] hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="w-9 h-9 rounded-md bg-[#001E6D]/10 flex items-center justify-center text-[#001E6D] mb-2.5">
-                    <BookOpen className="w-4 h-4" />
-                  </div>
-                  <h4 className="font-serif text-sm font-bold text-[#001E6D] mb-1">
-                    {t.about.pillar1Title}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {t.about.pillar1Desc}
-                  </p>
-                </div>
-                <div className="p-4 bg-slate-50 border border-slate-200 rounded-md shadow-xs hover:border-[#001E6D] hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="w-9 h-9 rounded-md bg-[#D90025]/10 flex items-center justify-center text-[#D90025] mb-2.5">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <h4 className="font-serif text-sm font-bold text-[#D90025] mb-1">
-                    {t.about.pillar2Title}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {t.about.pillar2Desc}
-                  </p>
-                </div>
-                <div className="p-4 bg-slate-50 border border-slate-200 rounded-md shadow-xs hover:border-[#001E6D] hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="w-9 h-9 rounded-md bg-[#001E6D]/10 flex items-center justify-center text-[#001E6D] mb-2.5">
-                    <Globe className="w-4 h-4" />
-                  </div>
-                  <h4 className="font-serif text-sm font-bold text-[#001E6D] mb-1">
-                    {t.about.pillar3Title}
-                  </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {t.about.pillar3Desc}
-                  </p>
-                </div>
-              </div>
-
-              {/* Action Button with Icon */}
-              <div className="pt-3">
-                <button
-                  onClick={() => onNavigate('about')}
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#001E6D] hover:bg-[#00144D] text-white text-xs font-bold uppercase tracking-wider rounded-md shadow-md transition-all duration-300 cursor-pointer group"
-                >
-                  <BookOpen className="w-4 h-4 text-white" />
-                  <span>{t.common.learnMore}</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </button>
-              </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-300">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#001E6D]" />
+              <span className="text-xs uppercase tracking-widest text-[#001E6D] font-bold">
+                Official UK Institutional Authority
+              </span>
             </div>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#001E6D] font-bold leading-tight">
+              About The British Board
+            </h2>
+            <div className="flex items-center gap-2 pt-1">
+              <div className="w-16 h-1 bg-[#001E6D]" />
+              <div className="w-6 h-1 bg-[#D90025]" />
+            </div>
+          </div>
 
-            {/* Right Column: Editorial Photograph with British Flag accent frame */}
-            <div className="lg:col-span-5">
-              <div className="relative group">
-                <div className="relative bg-white rounded-lg overflow-hidden border-2 border-slate-200 shadow-xl">
-                  {/* Subtle British accent bar above image */}
-                  <div className="h-1.5 w-full flex">
-                    <div className="h-full flex-1 bg-[#001E6D]" />
-                    <div className="h-full flex-1 bg-[#D90025]" />
-                  </div>
-                  <div className="overflow-hidden">
-                    <img
-                      src={ASSET_IMAGES.about}
-                      alt="The British Board Education Laboratory Session"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-auto object-cover transform group-hover:scale-103 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  {/* Caption banner */}
-                  <div className="p-4 bg-slate-50 text-slate-700 border-t border-slate-200 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs font-serif text-[#001E6D] font-bold flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-[#D90025]" />
-                        Accredited Clinical Training Workshop
-                      </p>
-                      <p className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">
-                        British Board Curricular Benchmarking
-                      </p>
-                    </div>
-                    <span className="text-[11px] text-slate-400 font-mono font-bold">UK·01</span>
-                  </div>
-                </div>
+          <p className="text-slate-700 leading-relaxed text-base">
+            {t.about.p1}
+          </p>
+
+          <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+            {t.about.p2}
+          </p>
+
+          <p className="text-slate-500 leading-relaxed text-sm">
+            {t.about.p3}
+          </p>
+
+          {/* Three Institutional Tenets */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200">
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-md shadow-xs hover:border-[#001E6D] hover:-translate-y-0.5 transition-all duration-300">
+              <div className="w-9 h-9 rounded-md bg-[#001E6D]/10 flex items-center justify-center text-[#001E6D] mb-2.5">
+                <BookOpen className="w-4 h-4" />
               </div>
+              <h4 className="font-serif text-sm font-bold text-[#001E6D] mb-1">
+                {t.about.pillar1Title}
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {t.about.pillar1Desc}
+              </p>
+            </div>
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-md shadow-xs hover:border-[#001E6D] hover:-translate-y-0.5 transition-all duration-300">
+              <div className="w-9 h-9 rounded-md bg-[#D90025]/10 flex items-center justify-center text-[#D90025] mb-2.5">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <h4 className="font-serif text-sm font-bold text-[#D90025] mb-1">
+                {t.about.pillar2Title}
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {t.about.pillar2Desc}
+              </p>
+            </div>
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-md shadow-xs hover:border-[#001E6D] hover:-translate-y-0.5 transition-all duration-300">
+              <div className="w-9 h-9 rounded-md bg-[#001E6D]/10 flex items-center justify-center text-[#001E6D] mb-2.5">
+                <Globe className="w-4 h-4" />
+              </div>
+              <h4 className="font-serif text-sm font-bold text-[#001E6D] mb-1">
+                {t.about.pillar3Title}
+              </h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                {t.about.pillar3Desc}
+              </p>
             </div>
           </div>
         </div>
@@ -359,13 +307,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
 
               <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-medium text-slate-500">Core Objective 01</span>
-                <button
-                  onClick={() => onNavigate('mission-vision')}
-                  className="px-4 py-2 bg-[#001E6D] hover:bg-[#00144D] text-white text-xs font-bold uppercase tracking-wider rounded-md flex items-center gap-2 transition-colors cursor-pointer"
-                >
-                  <span>{t.common.learnMore}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                <span className="text-xs font-bold text-[#001E6D] uppercase tracking-wider font-mono">Mandate</span>
               </div>
             </div>
 
@@ -393,13 +335,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
 
               <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-medium text-slate-500">Core Objective 02</span>
-                <button
-                  onClick={() => onNavigate('mission-vision')}
-                  className="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold uppercase tracking-wider rounded-md flex items-center gap-2 transition-colors cursor-pointer"
-                >
-                  <span>{t.common.learnMore}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+                <span className="text-xs font-bold text-[#D90025] uppercase tracking-wider font-mono">Vision</span>
               </div>
             </div>
           </div>
@@ -545,117 +481,86 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
 
       {/* 6. FEATURED INSTITUTION: THE INTERNATIONAL ACADEMY OF BEAUTY */}
       <section className="py-20 bg-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 sm:p-12 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              {/* Left Column: Academy Narrative */}
-              <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#001E6D]/10 border border-[#001E6D]/20 rounded-full">
-                  <Sparkles className="w-3.5 h-3.5 text-[#001E6D]" />
-                  <span className="text-[11px] uppercase tracking-wider text-[#001E6D] font-bold">
-                    Strategic Educational Partnership
-                  </span>
-                </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-50 border border-slate-200 rounded-lg p-8 sm:p-12 shadow-sm space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#001E6D]/10 border border-[#001E6D]/20 rounded-full">
+              <Sparkles className="w-3.5 h-3.5 text-[#001E6D]" />
+              <span className="text-[11px] uppercase tracking-wider text-[#001E6D] font-bold">
+                Strategic Educational Partnership
+              </span>
+            </div>
 
-                <div className="space-y-2">
-                  <h2 className="font-serif text-3xl sm:text-4xl text-[#001E6D] font-bold">
-                    {t.academie.title}
-                  </h2>
-                  <p className="font-serif italic text-sm text-[#D90025] font-medium">
-                    "{t.academie.tagline}"
-                  </p>
-                </div>
+            <div className="space-y-2">
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#001E6D] font-bold">
+                {t.academie.title}
+              </h2>
+              <p className="font-serif italic text-sm text-[#D90025] font-medium">
+                "{t.academie.tagline}"
+              </p>
+            </div>
 
-                <p className="text-sm text-slate-700 leading-relaxed">
-                  {t.academie.p1}
+            <p className="text-sm text-slate-700 leading-relaxed">
+              {t.academie.p1}
+            </p>
+
+            <p className="text-sm text-slate-600 leading-relaxed">
+              {t.academie.p2}
+            </p>
+
+            {/* Academy Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200">
+              <div className="p-4 bg-white border border-slate-200 rounded-md shadow-2xs">
+                <p className="font-serif text-xs font-bold text-[#001E6D] mb-1">
+                  {t.academie.highlight1Title}
                 </p>
-
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {t.academie.p2}
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  {t.academie.highlight1Desc}
                 </p>
-
-                {/* Academy Highlights */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200">
-                  <div className="p-3 bg-white border border-slate-200 rounded-md shadow-2xs">
-                    <p className="font-serif text-xs font-bold text-[#001E6D] mb-1">
-                      {t.academie.highlight1Title}
-                    </p>
-                    <p className="text-[11px] text-slate-600">
-                      {t.academie.highlight1Desc}
-                    </p>
-                  </div>
-                  <div className="p-3 bg-white border border-slate-200 rounded-md shadow-2xs">
-                    <p className="font-serif text-xs font-bold text-[#001E6D] mb-1">
-                      {t.academie.highlight2Title}
-                    </p>
-                    <p className="text-[11px] text-slate-600">
-                      {t.academie.highlight2Desc}
-                    </p>
-                  </div>
-                  <div className="p-3 bg-white border border-slate-200 rounded-md shadow-2xs">
-                    <p className="font-serif text-xs font-bold text-[#001E6D] mb-1">
-                      {t.academie.highlight3Title}
-                    </p>
-                    <p className="text-[11px] text-slate-600">
-                      {t.academie.highlight3Desc}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Direct Action Buttons */}
-                <div className="flex flex-wrap items-center gap-4 pt-4">
-                  <button
-                    onClick={() => onNavigate('standards')}
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#001E6D] hover:bg-[#00144D] text-white text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 shadow-md cursor-pointer"
-                  >
-                    <ShieldCheck className="w-4 h-4 text-white" />
-                    <span>Accreditation Standards</span>
-                  </button>
-
-                  <button
-                    onClick={() => onNavigate('contact')}
-                    className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white text-slate-800 hover:bg-slate-100 text-xs font-bold uppercase tracking-wider rounded-md transition-colors border border-slate-300 shadow-xs cursor-pointer"
-                  >
-                    <Award className="w-4 h-4 text-[#D90025]" />
-                    <span>Inquire About Accreditation</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                {/* Accurate relationship statement */}
-                <div className="p-3.5 bg-white border border-slate-200 rounded-md text-[11px] text-slate-500 leading-relaxed">
-                  <span className="font-bold text-slate-700 block mb-0.5">
-                    {t.academie.noteTitle}:
-                  </span>
-                  {t.academie.noteText}
-                </div>
               </div>
-
-              {/* Right Column: Visual of The Academy */}
-              <div className="lg:col-span-5">
-                <div className="relative group">
-                  <div className="relative rounded-lg overflow-hidden border border-slate-200 shadow-lg bg-white">
-                    <div className="overflow-hidden">
-                      <img
-                        src={ASSET_IMAGES.academie}
-                        alt="International Academy Training Atelier"
-                        referrerPolicy="no-referrer"
-                        className="w-full h-auto object-cover transform group-hover:scale-103 transition-transform duration-700 ease-out"
-                      />
-                    </div>
-                    <div className="p-4 bg-slate-50 text-slate-700 flex items-center justify-between border-t border-slate-200">
-                      <div>
-                        <p className="font-serif text-xs font-bold text-[#001E6D]">
-                          Accredited Centers: France &amp; Africa
-                        </p>
-                        <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
-                          Strategic Educational Partner
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="p-4 bg-white border border-slate-200 rounded-md shadow-2xs">
+                <p className="font-serif text-xs font-bold text-[#001E6D] mb-1">
+                  {t.academie.highlight2Title}
+                </p>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  {t.academie.highlight2Desc}
+                </p>
               </div>
+              <div className="p-4 bg-white border border-slate-200 rounded-md shadow-2xs">
+                <p className="font-serif text-xs font-bold text-[#001E6D] mb-1">
+                  {t.academie.highlight3Title}
+                </p>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  {t.academie.highlight3Desc}
+                </p>
+              </div>
+            </div>
+
+            {/* Direct Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <button
+                onClick={() => onNavigate('standards')}
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#001E6D] hover:bg-[#00144D] text-white text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-300 shadow-md cursor-pointer"
+              >
+                <ShieldCheck className="w-4 h-4 text-white" />
+                <span>Accreditation Standards</span>
+              </button>
+
+              <button
+                onClick={() => onNavigate('contact')}
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white text-slate-800 hover:bg-slate-100 text-xs font-bold uppercase tracking-wider rounded-md transition-colors border border-slate-300 shadow-xs cursor-pointer"
+              >
+                <Award className="w-4 h-4 text-[#D90025]" />
+                <span>Inquire About Accreditation</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            {/* Accurate relationship statement */}
+            <div className="p-3.5 bg-white border border-slate-200 rounded-md text-[11px] text-slate-500 leading-relaxed">
+              <span className="font-bold text-slate-700 block mb-0.5">
+                {t.academie.noteTitle}:
+              </span>
+              {t.academie.noteText}
             </div>
           </div>
         </div>

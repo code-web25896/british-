@@ -1,7 +1,7 @@
 import React from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
-import { EDUCATIONAL_STANDARDS, ASSET_IMAGES } from '../data/siteData';
+import { EDUCATIONAL_STANDARDS } from '../data/siteData';
 import { CheckCircle2, ShieldCheck, FileText, ArrowRight } from 'lucide-react';
 
 interface StandardsPageProps {
@@ -105,23 +105,6 @@ export const StandardsPage: React.FC<StandardsPageProps> = ({
                   <span>Request Evaluation Form</span>
                   <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </button>
-              </div>
-            </div>
-
-            <div className="relative rounded-sm overflow-hidden border border-[#C6A56B]/30 shadow-md">
-              <img
-                src={ASSET_IMAGES.masterclass}
-                alt="Educational standards symposia"
-                referrerPolicy="no-referrer"
-                className="w-full h-auto object-cover"
-              />
-              <div className="p-3 bg-white text-xs text-stone-600 border-t border-stone-200">
-                <span className="font-serif font-medium text-[#78163D] block">
-                  Peer Review & Symposium Audits
-                </span>
-                <span className="text-[11px] text-stone-500">
-                  Continuous pedagogical refinement
-                </span>
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
-import { ASSET_IMAGES } from '../data/siteData';
 import { Award, Sparkles, Shield, Compass, BookOpen, Layers, ArrowRight } from 'lucide-react';
 
 interface MissionVisionPageProps {
@@ -169,39 +168,27 @@ export const MissionVisionPage: React.FC<MissionVisionPageProps> = ({
         </div>
       </div>
 
-      {/* International Symposium Banner with Image */}
+      {/* International Symposium Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-sm overflow-hidden bg-[#202020] text-white border border-[#C6A56B]/40 shadow-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
-            <div className="lg:col-span-7 p-8 sm:p-12 space-y-4">
-              <span className="text-[11px] uppercase tracking-widest text-[#C6A56B] font-semibold">
-                Global Collaboration
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-medium">
-                Bridging Knowledge Across Continents
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
-                Our vision reaches beyond local salon traditions to create an interconnected community of beauty educators, researchers, and practitioners who hold each other to the highest ethical and instructional standards.
-              </p>
-              <div className="pt-2">
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="btn-luxury px-6 py-3.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-wider rounded-sm transition-colors border border-[#C6A56B] shadow-lg flex items-center gap-2.5 cursor-pointer"
-                >
-                  <Award className="w-4 h-4 text-[#C6A56B]" />
-                  <span>Join Our Institutional Dialogue</span>
-                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-                </button>
-              </div>
-            </div>
-            <div className="lg:col-span-5 h-full min-h-[250px]">
-              <img
-                src={ASSET_IMAGES.masterclass}
-                alt="International Aesthetics Symposium"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
-              />
-            </div>
+        <div className="relative rounded-sm overflow-hidden bg-[#202020] text-white border border-[#C6A56B]/40 shadow-xl p-8 sm:p-12 space-y-4 max-w-4xl mx-auto">
+          <span className="text-[11px] uppercase tracking-widest text-[#C6A56B] font-semibold">
+            Global Collaboration
+          </span>
+          <h3 className="font-serif text-2xl sm:text-3xl font-medium">
+            Bridging Knowledge Across Continents
+          </h3>
+          <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
+            Our vision reaches beyond local salon traditions to create an interconnected community of beauty educators, researchers, and practitioners who hold each other to the highest ethical and instructional standards.
+          </p>
+          <div className="pt-2">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="btn-luxury px-6 py-3.5 bg-[#78163D] hover:bg-[#8F1B4A] text-white text-xs font-semibold uppercase tracking-wider rounded-sm transition-colors border border-[#C6A56B] shadow-lg flex items-center gap-2.5 cursor-pointer"
+            >
+              <Award className="w-4 h-4 text-[#C6A56B]" />
+              <span>Join Our Institutional Dialogue</span>
+              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+            </button>
           </div>
         </div>
       </div>

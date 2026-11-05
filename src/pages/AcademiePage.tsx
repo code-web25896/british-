@@ -1,7 +1,6 @@
 import React from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
-import { ASSET_IMAGES } from '../data/siteData';
 import { ExternalLink, Sparkles, Award, Users, CheckCircle, ArrowRight, MapPin, Phone } from 'lucide-react';
 
 interface AcademiePageProps {
@@ -35,29 +34,11 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
 
       {/* Main Feature Showcase */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-white border-2 border-[#C6A56B]/40 rounded-sm p-8 sm:p-12 shadow-xl mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Visual Atelier */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-sm overflow-hidden border border-[#C6A56B]/50 shadow-2xl bg-[#202020]">
-                <img
-                  src={ASSET_IMAGES.academie}
-                  alt="International Academy of Beauty Training Atelier France & Africa"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="p-4 bg-[#202020] text-stone-200 border-t border-[#C6A56B]/30 flex items-center justify-between text-xs">
-                  <span>France &amp; Africa Centers · Master Training</span>
-                  <span className="text-[#C6A56B] font-medium">Strategic Partner</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Narrative text */}
-            <div className="lg:col-span-6 space-y-6">
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#202020] font-semibold">
-                European Elegance Meets International Excellence
-              </h2>
+        <div className="bg-white border-2 border-[#C6A56B]/40 rounded-sm p-8 sm:p-12 shadow-xl mb-16 max-w-4xl mx-auto">
+          <div className="space-y-6">
+            <h2 className="font-serif text-2xl sm:text-3xl text-[#202020] font-semibold">
+              European Elegance Meets International Excellence
+            </h2>
 
               <p className="drop-cap text-stone-700 leading-relaxed text-sm sm:text-base">
                 {t.academie.p1}
@@ -95,7 +76,6 @@ export const AcademiePage: React.FC<AcademiePageProps> = ({
               </div>
             </div>
           </div>
-        </div>
 
         {/* 3 Academy Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">

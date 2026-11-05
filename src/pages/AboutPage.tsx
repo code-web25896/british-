@@ -1,7 +1,6 @@
 import React from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
-import { ASSET_IMAGES } from '../data/siteData';
 import { ShieldCheck, BookOpen, Award, CheckCircle, ArrowRight, Compass } from 'lucide-react';
 
 interface AboutPageProps {
@@ -102,12 +101,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, language }) =>
           {/* Right Column: Visual Evidence & Institutional Card */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-[#202020] rounded-sm overflow-hidden border border-[#C6A56B]/40 shadow-xl text-white">
-              <img
-                src={ASSET_IMAGES.about}
-                alt="Aesthetics education laboratory session"
-                referrerPolicy="no-referrer"
-                className="w-full h-auto object-cover"
-              />
               <div className="p-6 space-y-4">
                 <span className="text-[11px] uppercase tracking-widest text-[#C6A56B] font-semibold block">
                   Institutional Focus

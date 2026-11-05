@@ -1,11 +1,5 @@
 import { AreaOfExcellence, EducationalStandardPillar, ProgramItem, GalleryItem, AcademyPricedService, NewsItem, CertificateRecord } from '../types';
 
-import heroImg from '../assets/images/abac_hero_aesthetic_education_1793449971731.jpg';
-import aboutImg from '../assets/images/abac_about_institutional_1793449971959.jpg';
-import academieImg from '../assets/images/academie_internationale_beauty_1793449971527.jpg';
-import cosmetologyImg from '../assets/images/abac_program_cosmetology_1793449986494.jpg';
-import masterclassImg from '../assets/images/abac_masterclass_workshop_1793449986400.jpg';
-
 import news1Img from '../assets/images/news1.png';
 import news2Img from '../assets/images/news2.jpg';
 import news3Img from '../assets/images/news3.jpg';
@@ -13,11 +7,11 @@ import new4Img from '../assets/images/new4.png';
 import news5Img from '../assets/images/news5.jpg';
 
 export const ASSET_IMAGES = {
-  hero: heroImg,
-  about: aboutImg,
-  academie: academieImg,
-  cosmetology: cosmetologyImg,
-  masterclass: masterclassImg,
+  hero: news1Img,
+  about: news2Img,
+  academie: news3Img,
+  cosmetology: new4Img,
+  masterclass: news5Img,
   news1: news1Img,
   news2: news2Img,
   news3: news3Img,
