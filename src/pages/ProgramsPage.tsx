@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Language, PageRoute, ProgramItem } from '../types';
 import { translations } from '../i18n/translations';
 import { PROGRAMS_CATALOG } from '../data/siteData';
-import { Clock, BookOpen, Layers, CheckCircle, ArrowRight, X, LayoutGrid, Sparkles, Scissors, Award, Send } from 'lucide-react';
+import { Clock, BookOpen, Layers, CheckCircle, ArrowRight, X, LayoutGrid, Sparkles, Palette, Award, Send } from 'lucide-react';
 
 interface ProgramsPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -71,7 +71,7 @@ export const ProgramsPage: React.FC<ProgramsPageProps> = ({
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
-            <Scissors className="w-3.5 h-3.5" />
+            <Palette className="w-3.5 h-3.5" />
             <span>{t.programs.filterCosmetology}</span>
           </button>
           <button

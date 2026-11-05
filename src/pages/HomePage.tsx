@@ -9,7 +9,7 @@ import {
 import {
   GraduationCap,
   Sparkles,
-  Scissors,
+  Palette,
   Award,
   BookOpen,
   ShieldCheck,
@@ -42,8 +42,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
         return <GraduationCap className="w-6 h-6 text-[#001E6D]" />;
       case 'Sparkles':
         return <Sparkles className="w-6 h-6 text-[#D90025]" />;
-      case 'Scissors':
-        return <Scissors className="w-6 h-6 text-[#001E6D]" />;
+      case 'Palette':
+        return <Palette className="w-6 h-6 text-[#001E6D]" />;
       case 'Award':
         return <Award className="w-6 h-6 text-[#D90025]" />;
       case 'BookOpen':

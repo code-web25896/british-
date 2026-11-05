@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Language, PageRoute, GalleryItem } from '../types';
 import { translations } from '../i18n/translations';
 import { GALLERY_ITEMS } from '../data/siteData';
-import { Maximize2, Images, GraduationCap, Sparkles, Scissors, Award } from 'lucide-react';
+import { Maximize2, Images, GraduationCap, Sparkles, Palette, Award } from 'lucide-react';
 import { LightboxModal } from '../components/LightboxModal';
 
 interface GalleryPageProps {
@@ -94,7 +94,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ language }) => {
                 : 'text-stone-600 hover:text-stone-900'
             }`}
           >
-            <Scissors className="w-3.5 h-3.5" />
+            <Palette className="w-3.5 h-3.5" />
             <span>{t.gallery.filterCosmetology}</span>
           </button>
           <button

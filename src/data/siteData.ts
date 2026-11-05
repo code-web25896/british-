@@ -34,7 +34,7 @@ export const AREAS_OF_EXCELLENCE: AreaOfExcellence[] = [
   },
   {
     id: 'professional-cosmetology',
-    iconName: 'Scissors',
+    iconName: 'Palette',
     titleKey: 'cosmetologyTitle',
     descKey: 'cosmetologyDesc'
   },
