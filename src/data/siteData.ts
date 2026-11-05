@@ -276,7 +276,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000125',
     studentName: 'BALBOULI RAHMA',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: '0236302',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -285,7 +285,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000126',
     studentName: 'MOUMMI ZAINEB',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'U221350',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -294,7 +294,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000127',
     studentName: 'BEL HAJ SALAH HANA',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'N/A',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -303,7 +303,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000128',
     studentName: 'ABIDI AMEL',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: '06173878',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -312,7 +312,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000129',
     studentName: 'BAHLOUL IKBEL',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: '14357016',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -321,7 +321,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000130',
     studentName: 'KARRAY EYA',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'J319021',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -330,7 +330,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000131',
     studentName: 'YAHYAOUI MARIEM',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'N433054',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -339,7 +339,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000132',
     studentName: 'BEN NOSRA JIHEN',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'Q236399',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -348,7 +348,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000133',
     studentName: 'MRAD KHOULOUD',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'N248513',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -357,7 +357,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000134',
     studentName: 'AJILI WAHIDA',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'U356832',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -366,7 +366,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000135',
     studentName: 'BELKHIR ALYA',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'Q112992',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
@@ -375,7 +375,7 @@ export const OFFICIAL_CERTIFICATES: CertificateRecord[] = [
   {
     code: 'BBC-2026-000136',
     studentName: 'HFAIEDH MARIEM',
-    specialty: 'Skin Core Trainer',
+    specialty: 'Skin Care Trainer',
     year: '2026',
     passportNumber: 'U834425',
     accreditedCenter: 'The International Academy of Beauty (France & Africa)',
