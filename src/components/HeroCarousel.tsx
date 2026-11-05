@@ -52,7 +52,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
     const query = certQuery.trim();
     if (!query) return;
 
-    // Normaliser la recherche (insensible à la casse, espaces ignorés, avec ou sans tirets)
+    // Normalize search (case-insensitive, ignore spaces, with or without dashes)
     const cleanQuery = query.toUpperCase().replace(/\s+/g, '');
     const cleanQueryAlphaNum = query.toUpperCase().replace(/[^A-Z0-9]/g, '');
 
@@ -75,6 +75,84 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
       });
     }
     setIsModalOpen(true);
+  };
+
+  const handlePrintAttestation = () => {
+    const cert = verificationResult.certificate;
+    if (!cert) return;
+    const printWindow = window.open('', '_blank', 'width=860,height=680');
+    if (!printWindow) return;
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <title>The British Board – Certificate Attestation</title>
+        <style>
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+          body { font-family: Georgia, 'Times New Roman', serif; padding: 48px; color: #1e293b; background: #fff; }
+          .tri-bar { display: flex; height: 6px; width: 100%; margin-bottom: 32px; }
+          .tri-blue { flex: 1; background: #001E6D; }
+          .tri-white { width: 60px; background: #fff; }
+          .tri-red { flex: 1; background: #D90025; }
+          .header { text-align: center; padding-bottom: 24px; border-bottom: 2px solid #001E6D; margin-bottom: 28px; }
+          .board-title { color: #001E6D; font-size: 26px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+          .board-sub { font-size: 13px; color: #475569; margin-top: 4px; }
+          .verified-badge { display: inline-block; margin-top: 10px; background: #dcfce7; border: 1px solid #16a34a; color: #15803d; font-size: 11px; font-weight: bold; padding: 4px 14px; border-radius: 999px; letter-spacing: 1px; text-transform: uppercase; }
+          .holder-label { text-align: center; font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: #94a3b8; margin-bottom: 6px; }
+          .student-name { text-align: center; font-size: 32px; font-weight: 900; color: #001E6D; margin-bottom: 12px; }
+          .code-badge { display: block; text-align: center; margin-bottom: 28px; }
+          .code-badge span { background: #001E6D; color: #fff; font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; padding: 6px 20px; border-radius: 4px; letter-spacing: 2px; }
+          .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+          .field { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; }
+          .field.full { grid-column: span 2; }
+          .field label { display: block; font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; font-family: Arial, sans-serif; }
+          .field .val { font-size: 15px; font-weight: bold; color: #1e293b; }
+          .field .val.red { color: #D90025; }
+          .field .val.blue { color: #001E6D; }
+          .footer { margin-top: 28px; border-top: 1px solid #e2e8f0; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #94a3b8; font-family: Arial, sans-serif; }
+          .footer strong { color: #001E6D; }
+          @media print { body { padding: 24px; } }
+        </style>
+      </head>
+      <body>
+        <div class="tri-bar"><div class="tri-blue"></div><div class="tri-white"></div><div class="tri-red"></div></div>
+        <div class="header">
+          <div class="board-title">🇬🇧 The British Board</div>
+          <div class="board-sub">Education &amp; Training Accreditation Organization · United Kingdom</div>
+          <div class="verified-badge">✓ Officially Verified &amp; Active in Registry</div>
+        </div>
+        <div class="holder-label">Certificate Holder</div>
+        <div class="student-name">${cert.studentName}</div>
+        <div class="code-badge"><span>${cert.code}</span></div>
+        <div class="grid">
+          <div class="field">
+            <label>Passport No. / ID</label>
+            <div class="val">${cert.passportNumber}</div>
+          </div>
+          <div class="field">
+            <label>Promotion Year</label>
+            <div class="val blue">${cert.year}</div>
+          </div>
+          <div class="field full">
+            <label>Specialty / Qualification</label>
+            <div class="val red">${cert.specialty}</div>
+          </div>
+          <div class="field full">
+            <label>Accredited Training Center</label>
+            <div class="val">${cert.accreditedCenter}</div>
+          </div>
+        </div>
+        <div class="footer">
+          <span>UK Registry Reference: <strong>UKPRN 10062939</strong></span>
+          <span>Issued by The British Board for Education and Training</span>
+        </div>
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => { printWindow.print(); }, 400);
   };
 
 
@@ -232,7 +310,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                         {verificationResult.certificate.studentName}
                       </p>
                       <p className="text-[10px] text-emerald-700 truncate font-mono">
-                        {verificationResult.certificate.code} · Validé
+                        {verificationResult.certificate.code} · Verified
                       </p>
                     </div>
                   </div>
@@ -241,7 +319,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                     onClick={() => setIsModalOpen(true)}
                     className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[10px] rounded cursor-pointer whitespace-nowrap shadow-xs"
                   >
-                    Voir Popup
+                    View Details
                   </button>
                 </div>
               )}
@@ -251,7 +329,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                   <div className="flex items-center gap-2 min-w-0">
                     <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
                     <span className="text-[11px] text-rose-800 font-semibold truncate">
-                      Certificat non existant
+                      Certificate Not Found
                     </span>
                   </div>
                   <button
@@ -259,7 +337,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                     onClick={() => setIsModalOpen(true)}
                     className="px-2.5 py-1 bg-rose-600 hover:bg-rose-700 text-white font-bold text-[10px] rounded cursor-pointer whitespace-nowrap"
                   >
-                    Détails
+                    Details
                   </button>
                 </div>
               )}
@@ -333,7 +411,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 type="button"
                 onClick={() => setIsModalOpen(false)}
                 className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center cursor-pointer transition-colors shrink-0 shadow-2xs"
-                title="Fermer"
+                title="Close"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -347,10 +425,10 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 </div>
                 <div>
                   <span className="text-[10px] uppercase tracking-widest font-extrabold text-emerald-200 block">
-                    Vérification Réussie · Official Record
+                    Verification Successful · Official Record
                   </span>
                   <h4 className="font-serif text-sm sm:text-base font-bold text-white leading-tight">
-                    🎉 Félicitations ! Certificat Authentique &amp; Validé
+                    🎉 Congratulations! Authentic &amp; Verified Certificate
                   </h4>
                 </div>
               </div>
@@ -365,14 +443,14 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
               <div className="text-center p-4 sm:p-5 rounded-xl bg-slate-50 border-2 border-emerald-300 shadow-xs relative overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-1 bg-emerald-500 rounded-b" />
                 <span className="text-[10px] sm:text-[11px] uppercase tracking-widest font-bold text-slate-500 block mb-1">
-                  Titulaire du Certificat (Student Name)
+                  Certificate Holder (Student Name)
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#001E6D] tracking-wide">
                   {verificationResult.certificate.studentName}
                 </h2>
                 <div className="inline-flex items-center gap-2 mt-2.5 px-3.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs font-bold font-mono shadow-2xs">
                   <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-                  Code Certificat : {verificationResult.certificate.code}
+                  Certificate Code: {verificationResult.certificate.code}
                 </div>
               </div>
 
@@ -380,7 +458,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 {/* Passport Number */}
                 <div className="p-3 bg-white border border-slate-200 rounded-lg shadow-2xs">
-                  <span className="text-[11px] font-medium text-slate-500 block">N° Passeport / ID :</span>
+                  <span className="text-[11px] font-medium text-slate-500 block">Passport No. / ID:</span>
                   <span className="font-mono text-sm sm:text-base font-bold text-slate-900 mt-0.5 block">
                     {verificationResult.certificate.passportNumber}
                   </span>
@@ -388,7 +466,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
 
                 {/* Promotion Year */}
                 <div className="p-3 bg-white border border-slate-200 rounded-lg shadow-2xs">
-                  <span className="text-[11px] font-medium text-slate-500 block">Année de Promotion :</span>
+                  <span className="text-[11px] font-medium text-slate-500 block">Promotion Year:</span>
                   <span className="font-serif text-sm sm:text-base font-bold text-[#001E6D] mt-0.5 flex items-center gap-1.5">
                     <Calendar className="w-4 h-4 text-[#D90025]" />
                     {verificationResult.certificate.year}
@@ -397,7 +475,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
 
                 {/* Specialty */}
                 <div className="sm:col-span-2 p-3.5 bg-white border border-slate-200 rounded-lg shadow-2xs">
-                  <span className="text-[11px] font-medium text-slate-500 block">Spécialité / Qualification :</span>
+                  <span className="text-[11px] font-medium text-slate-500 block">Specialty / Qualification:</span>
                   <div className="flex items-center gap-2 mt-1">
                     <GraduationCap className="w-5 h-5 text-[#D90025] shrink-0" />
                     <span className="font-serif text-base font-bold text-[#D90025]">
@@ -408,7 +486,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
 
                 {/* Accredited Center */}
                 <div className="sm:col-span-2 p-3 bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
-                  <span className="text-[11px] font-medium text-slate-500 block">Centre de Formation Accrédité :</span>
+                  <span className="text-[11px] font-medium text-slate-500 block">Accredited Training Center:</span>
                   <span className="font-semibold text-xs sm:text-sm text-[#001E6D] mt-0.5 block">
                     {verificationResult.certificate.accreditedCenter}
                   </span>
@@ -422,7 +500,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                   <span className="font-semibold">UK Registry Reference: UKPRN 10062939</span>
                 </div>
                 <span className="font-bold uppercase tracking-wider text-[10px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
-                  100% Authentifié
+                  100% Authenticated
                 </span>
               </div>
             </div>
@@ -431,11 +509,11 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
             <div className="p-4 sm:p-5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
               <button
                 type="button"
-                onClick={() => window.print()}
+                onClick={handlePrintAttestation}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-md text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer shadow-2xs"
               >
                 <Printer className="w-4 h-4 text-[#001E6D]" />
-                <span>Imprimer l'Attestation</span>
+                <span>Print Attestation</span>
               </button>
 
               <button
@@ -443,7 +521,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 onClick={() => setIsModalOpen(false)}
                 className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 bg-[#001E6D] hover:bg-[#00144D] text-white rounded-md text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer shadow-md"
               >
-                Fermer
+                Close
               </button>
             </div>
           </div>
@@ -473,10 +551,10 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 </div>
                 <div>
                   <span className="text-[10px] uppercase tracking-widest font-bold text-rose-700 block">
-                    Registre Officiel UK
+                    UK Official Registry
                   </span>
                   <h3 className="font-serif text-lg font-bold text-rose-950 leading-tight">
-                    Certificat Non Existant
+                    Certificate Not Found
                   </h3>
                 </div>
               </div>
@@ -484,6 +562,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 type="button"
                 onClick={() => setIsModalOpen(false)}
                 className="text-rose-700 hover:text-rose-950 cursor-pointer p-1 rounded hover:bg-rose-100 transition-colors shrink-0"
+                title="Close"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -492,16 +571,16 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
             {/* Body */}
             <div className="p-6 space-y-3 text-xs text-slate-700">
               <p className="leading-relaxed">
-                Aucun enregistrement actif n'a été trouvé dans le registre officiel pour le code :
+                No active record was found in the official registry for certificate code:
               </p>
               <div className="p-3 bg-rose-50/70 border border-rose-200 rounded-lg text-center font-mono font-bold text-sm text-rose-700 break-all">
                 "{verificationResult.code}"
               </div>
               <p className="text-slate-500 text-[11px] leading-relaxed">
-                Veuillez vérifier l'exactitude de votre code ou contacter l'administration de The British Board :
+                Please verify your certificate code or contact The British Board administration:
               </p>
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-between text-xs">
-                <span className="font-medium text-slate-600">Assistance téléphonique :</span>
+                <span className="font-medium text-slate-600">Telephone Assistance:</span>
                 <a href="tel:+447497275861" className="font-bold text-[#001E6D] hover:underline font-mono">
                   +44 7497 275861
                 </a>
@@ -515,7 +594,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
                 onClick={() => setIsModalOpen(false)}
                 className="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-md text-xs font-bold uppercase tracking-wider cursor-pointer"
               >
-                Fermer &amp; Réessayer
+                Close &amp; Try Again
               </button>
             </div>
           </div>
