@@ -64,9 +64,20 @@ export const Footer: React.FC<FooterProps> = ({
               The British Board is a globally recognized accreditation and certification organization. Operating under strict British standards, we validate institutional curricula and endorse diplomas through strategic partner academies across the UK, Europe, and the Mediterranean.
             </p>
 
+            {/* Official Legal & Registry Badges */}
+            <div className="flex flex-wrap gap-2 pt-1 text-[11px] font-mono">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-950/80 border border-blue-700/60 text-blue-200">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span>UKPRN: 10062939</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-950/80 border border-blue-700/60 text-blue-200">
+                <span>Co. No: 10473336</span>
+              </span>
+            </div>
+
             <div className="flex items-center gap-2 pt-1 text-xs text-slate-400">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-400" />
-              <span>Global Registry Verification Service Active</span>
+              <span>Official Global Registry Service Active (britishboard-official.com)</span>
             </div>
           </div>
 
@@ -206,9 +217,9 @@ export const Footer: React.FC<FooterProps> = ({
             <ShieldCheck className="w-5 h-5 text-[#D90025] shrink-0 mt-0.5" />
             <div className="text-xs text-slate-400 leading-relaxed">
               <span className="font-bold text-slate-200 block mb-0.5">
-                Official UK Institutional Disclaimer:
+                Official UK Institutional Governance &amp; Regulatory Framework:
               </span>
-              The British Board is an independent educational accreditation and certification authority. We benchmark curriculum excellence, verify institutional compliance, and provide credential attestation. All diplomas, certificates, and partner accreditations can be verified directly via our registry.
+              The British Board (legal entity: <strong>BRI BOARD FOR TRAINING AND CONSULTING LTD</strong>, UK Companies House No. <strong>10473336</strong>, UKPRN: <strong>10062939</strong>) operates as an independent vocational accreditation and certification authority benchmarking educational standards in aesthetics, cosmetology, and modern technology. Official international registry portal: <a href="https://britishboard-official.com/" className="text-blue-300 underline font-mono">britishboard-official.com</a> (associated: <a href="https://britishboard.org.uk" className="text-blue-300 underline font-mono">britishboard.org.uk</a>). Providing independent vocational standards and CPD certifications distinct from statutory secondary school general qualifications regulated by Ofqual.
             </div>
           </div>
 

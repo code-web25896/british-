@@ -1,7 +1,7 @@
 import React from 'react';
 import { Language, PageRoute } from '../types';
 import { translations } from '../i18n/translations';
-import { ShieldCheck, BookOpen, Award, CheckCircle, ArrowRight, Compass } from 'lucide-react';
+import { ShieldCheck, BookOpen, Award, CheckCircle, ArrowRight, Compass, ExternalLink, Building2, CheckCircle2 } from 'lucide-react';
 
 interface AboutPageProps {
   onNavigate: (route: PageRoute) => void;
@@ -36,7 +36,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, language }) =>
           <div className="lg:col-span-7 space-y-6">
             <div className="bg-white p-8 sm:p-10 border border-[#C6A56B]/25 rounded-sm shadow-sm space-y-6">
               <h2 className="font-serif text-2xl text-[#78163D] font-semibold">
-                Advancing the Discipline of Aesthetic & Cosmetology Education
+                Advancing the Discipline of Aesthetic &amp; Cosmetology Education
               </h2>
               <p className="drop-cap text-stone-700 leading-relaxed text-sm sm:text-base">
                 {t.about.p1}
@@ -48,13 +48,47 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, language }) =>
                 {t.about.p3}
               </p>
 
-              <div className="p-4 bg-[#F8F6F2] border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#78163D] text-xs text-stone-600 space-y-1">
-                <span className="font-semibold text-[#202020] block">
-                  Commitment to Truthful Institutional Governance:
-                </span>
-                <p>
-                  The British Board operates strictly as an educational and curricular benchmarking organization. All published guidelines, evaluation frameworks, and program descriptions are grounded in verifiable educational criteria, ensuring total credibility for students and institutions alike.
+              {/* Verified Institutional Registration Panel */}
+              <div className="p-5 bg-[#F8F6F2] border-l-4 rtl:border-l-0 rtl:border-r-4 border-[#001E6D] text-xs text-stone-700 space-y-3 rounded-r-sm">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="font-bold text-[#001E6D] text-sm flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-[#D90025]" />
+                    Official UK Institutional Governance &amp; Registration
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="bg-emerald-100 text-emerald-800 font-mono font-bold px-2 py-0.5 rounded text-[10px]">
+                      UKPRN: 10062939
+                    </span>
+                    <span className="bg-blue-100 text-blue-900 font-mono font-bold px-2 py-0.5 rounded text-[10px]">
+                      Co. No: 10473336
+                    </span>
+                  </div>
+                </div>
+                <p className="leading-relaxed">
+                  The British Board (legal entity: <strong>BRI BOARD FOR TRAINING AND CONSULTING LTD</strong>, incorporated in England &amp; Wales under Company No. <strong>10473336</strong>) is listed on the official UK Register of Learning Providers (UKPRN: <strong>10062939</strong>).
                 </p>
+                <div className="pt-2 border-t border-stone-300/60 flex flex-wrap gap-4 text-[11px] font-semibold text-[#001E6D]">
+                  <a
+                    href="https://find-and-update.company-information.service.gov.uk/company/10473336"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 hover:text-[#D90025] transition-colors"
+                  >
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span>Companies House Service (GOV.UK)</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                  <a
+                    href="https://www.ukrlp.co.uk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 hover:text-[#D90025] transition-colors"
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>UKRLP Verification Portal</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
             </div>
 

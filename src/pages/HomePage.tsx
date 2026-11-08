@@ -23,6 +23,11 @@ import {
   Calendar,
   Newspaper,
   X,
+  Building2,
+  Scale,
+  FileText,
+  CheckCircle2,
+  ExternalLink,
 } from 'lucide-react';
 import { HeroCarousel } from '../components/HeroCarousel';
 
@@ -258,6 +263,138 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
               <p className="text-xs text-slate-600 leading-relaxed">
                 {t.about.pillar3Desc}
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UK INSTITUTIONAL GOVERNANCE, LEGAL REGISTRATION & REGULATORY FRAMEWORK */}
+      <section className="py-16 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-50 border-2 border-[#001E6D]/20 rounded-xl p-6 sm:p-10 shadow-sm">
+            {/* Header */}
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#001E6D]/10 border border-[#001E6D]/20">
+                  <ShieldCheck className="w-4 h-4 text-[#001E6D]" />
+                  <span className="text-xs uppercase tracking-widest text-[#001E6D] font-bold">
+                    Official UK Legal Governance &amp; Registry Standing
+                  </span>
+                </div>
+                <h2 className="font-serif text-2xl sm:text-3xl text-[#001E6D] font-bold">
+                  Institutional Registration &amp; Accreditation Status
+                </h2>
+                <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
+                  The British Board operates under the regulatory statutes of the United Kingdom. Public records and official recognition can be verified independently via official UK Government portals.
+                </p>
+              </div>
+
+              {/* Status Badges */}
+              <div className="flex flex-wrap sm:flex-col gap-2 shrink-0">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-bold font-mono">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  UKPRN: 10062939
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-blue-50 border border-blue-300 text-blue-900 text-xs font-bold font-mono">
+                  <Building2 className="w-4 h-4 text-[#001E6D]" />
+                  Companies House: 10473336
+                </span>
+              </div>
+            </div>
+
+            {/* Verification Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+              {/* Card 1: UKRLP Register */}
+              <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-xs flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-md bg-[#001E6D]/10 flex items-center justify-center text-[#001E6D]">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-serif font-bold text-base text-[#001E6D]">
+                    UK Register of Learning Providers
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Listed on the official UK government database of learning providers under <strong>UKPRN 10062939</strong>, ensuring authoritative institutional transparency for international learners and training centers.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 mt-4">
+                  <a
+                    href="https://www.ukrlp.co.uk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001E6D] hover:text-[#D90025] transition-colors"
+                  >
+                    <span>Verify at ukrlp.co.uk</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Card 2: UK Companies House */}
+              <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-xs flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-md bg-[#D90025]/10 flex items-center justify-center text-[#D90025]">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-serif font-bold text-base text-[#001E6D]">
+                    UK Companies House Registered
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Incorporated in England &amp; Wales under Company Registration No. <strong>10473336</strong> (BRI BOARD FOR TRAINING AND CONSULTING LTD operating as The British Board). Public filings are available on GOV.UK.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 mt-4">
+                  <a
+                    href="https://find-and-update.company-information.service.gov.uk/company/10473336"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001E6D] hover:text-[#D90025] transition-colors"
+                  >
+                    <span>View Filing on Service GOV.UK</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Card 3: Autonomous Vocational Framework vs Ofqual */}
+              <div className="bg-white p-6 rounded-lg border border-slate-200 shadow-xs flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-10 h-10 rounded-md bg-amber-500/10 flex items-center justify-center text-amber-700">
+                    <Scale className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-serif font-bold text-base text-[#001E6D]">
+                    Regulatory Framework &amp; Scope
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    The British Board provides autonomous vocational accreditation, curriculum benchmarking, and CPD validation for specialized aesthetic and cosmetic education. As an independent vocational accreditation body, it does not offer statutory school qualifications governed by Ofqual.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-slate-100 mt-4">
+                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500">
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    Autonomous Vocational &amp; CPD Standards
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Official Domain Cross-Reference Box */}
+            <div className="mt-8 p-4 bg-white border border-slate-200 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <p className="text-xs text-slate-700">
+                  <strong className="text-[#001E6D]">Official Registry Standing:</strong> <span className="font-mono font-semibold">https://britishboard-official.com/</span> is the official digital portal and verification registry of The British Board, working in synergy with institutional domains <span className="font-mono">britishboard.org.uk</span> and <span className="font-mono">british-board.uk</span>.
+                </p>
+              </div>
+              <a
+                href="https://britishboard.org.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#001E6D] hover:text-[#D90025] shrink-0 underline decoration-slate-300"
+              >
+                <span>britishboard.org.uk</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
         </div>
