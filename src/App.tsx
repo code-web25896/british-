@@ -74,22 +74,22 @@ export default function App() {
     let pageTitle = t.common.brandAbbr;
     switch (currentRoute) {
       case 'about':
-        pageTitle = `${t.nav.about} | ${t.common.brandAbbr}`;
+        pageTitle = `About The Board | The British Board (Official Website)`;
         break;
       case 'mission-vision':
-        pageTitle = `${t.nav.missionVision} | ${t.common.brandAbbr}`;
+        pageTitle = `Mission & Vision | The British Board (Official Website)`;
         break;
       case 'standards':
-        pageTitle = `${t.nav.standards} | ${t.common.brandAbbr}`;
+        pageTitle = `Accreditation Standards | The British Board (Official Website)`;
         break;
       case 'academie':
-        pageTitle = `L’Académie Internationale | ${t.common.brandAbbr}`;
+        pageTitle = `Partner Academies | The British Board (Official Website)`;
         break;
       case 'contact':
-        pageTitle = `${t.nav.contact} | ${t.common.brandAbbr}`;
+        pageTitle = `Contact & Inquiries | The British Board (Official Website)`;
         break;
       default:
-        pageTitle = `${t.common.brandName} (${t.common.brandAbbr})`;
+        pageTitle = `The British Board · Official UK Accreditation Body | britishboard-official.com`;
         break;
     }
     document.title = pageTitle;

@@ -144,8 +144,8 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
           </div>
         </div>
         <div class="footer">
-          <span>UK Registry Reference: <strong>UKPRN 10062939</strong></span>
-          <span>Issued by The British Board for Education and Training</span>
+          <span>UK Registry Reference: <strong>UKPRN 10062939</strong> · Official Portal: <strong>britishboard-official.com</strong></span>
+          <span>The British Board for Education and Training · UK</span>
         </div>
       </body>
       </html>
@@ -497,7 +497,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onNavigate }) => {
               <div className="p-3 bg-emerald-50/70 border border-emerald-200 rounded-lg flex items-center justify-between text-[11px] text-emerald-900">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
-                  <span className="font-semibold">UK Registry Reference: UKPRN 10062939</span>
+                  <span className="font-semibold">UK Registry: UKPRN 10062939 · britishboard-official.com</span>
                 </div>
                 <span className="font-bold uppercase tracking-wider text-[10px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
                   100% Authenticated

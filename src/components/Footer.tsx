@@ -164,12 +164,21 @@ export const Footer: React.FC<FooterProps> = ({
             {/* Official Contact Details */}
             <div className="space-y-2.5 text-xs text-slate-300 pt-1">
               <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-[#D90025] shrink-0" />
+                <a
+                  href="https://britishboard-official.com/"
+                  className="hover:text-white transition-colors font-mono font-semibold text-white"
+                >
+                  britishboard-official.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#D90025] shrink-0" />
                 <a
-                  href="mailto:contact@britishboardofbeauty.com"
+                  href="mailto:contact@britishboard-official.com"
                   className="hover:text-white transition-colors"
                 >
-                  contact@britishboardofbeauty.com
+                  contact@britishboard-official.com
                 </a>
               </div>
               <div className="flex items-center gap-2">

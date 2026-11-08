@@ -12,7 +12,7 @@ Dans le panneau Hostinger (**hPanel > Node.js > Variables d'environnement**) ou 
 | :--- | :--- | :--- |
 | `NODE_ENV` | `production` | Active le mode optimisé de production pour Express et Node. |
 | `PORT` | `3000` *(ou attribué auto)* | Le port d'écoute du serveur Node.js (géré automatiquement par Hostinger). |
-| `APP_URL` | `https://votre-domaine.com` | L'URL officielle de votre site hébergé sur Hostinger. |
+| `APP_URL` | `https://britishboard-official.com` | L'URL officielle de votre site hébergé sur Hostinger. |
 | `GEMINI_API_KEY` | *(facultatif)* | Clé API Google Gemini si vous activez des fonctions IA supplémentaires. |
 
 ---

@@ -136,10 +136,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ language }) => {
                       {t.contact.emailLabel}
                     </span>
                     <a
-                      href="mailto:contact@britishboardofbeauty.com"
+                      href="mailto:contact@britishboard-official.com"
                       className="text-stone-200 font-serif font-semibold hover:text-[#D90025] transition-colors"
                     >
-                      contact@britishboardofbeauty.com
+                      contact@britishboard-official.com
                     </a>
                   </div>
                 </div>

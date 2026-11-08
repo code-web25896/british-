@@ -1,0 +1,64 @@
+﻿# Robots.txt for The British Board Official Portal
+# Primary Domain: https://britishboard-official.com/
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Explicit permissions for standard search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Explicit permissions for OpenAI / ChatGPT / SearchGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Explicit permissions for Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Explicit permissions for Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Explicit permissions for Google Gemini & Apple Intelligence
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Canonical Sitemap and Host definition
+Host: britishboard-official.com
+Sitemap: https://britishboard-official.com/sitemap.xml

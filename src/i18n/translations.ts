@@ -479,7 +479,7 @@ export const translations: Record<Language, Translations> = {
       infoTitle: "Official Institutional Contacts",
       infoSubtitle: "Official communication channels for curriculum evaluation, training audits, and accreditation.",
       emailLabel: "Official Inquiries Email",
-      emailPlaceholder: "contact@britishboardofbeauty.com",
+      emailPlaceholder: "contact@britishboard-official.com",
       phoneLabel: "Official Direct Line & WhatsApp",
       phonePlaceholder: "+44 7497 275861",
       addressLabel: "Headquarters & Accredited Centers",
