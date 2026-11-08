@@ -204,7 +204,7 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#D90025] shrink-0 mt-0.5" />
                 <span className="text-slate-300 leading-snug">
-                  London (United Kingdom Headquarters) · Accredited Centers: France &amp; Africa
+                  <strong>Registered Office:</strong> 2 Frederick Street, Kings Cross, London, WC1X 0ND, United Kingdom
                 </span>
               </div>
             </div>

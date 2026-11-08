@@ -378,6 +378,91 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, language }) => {
               </div>
             </div>
 
+            {/* Compliance & Audit Evaluation Table (Directly resolving ChatGPT & Public Audits) */}
+            <div className="mt-8 bg-white border border-slate-200 rounded-lg overflow-hidden shadow-xs">
+              <div className="bg-[#001E6D] text-white px-5 py-3 flex items-center justify-between">
+                <span className="font-serif font-bold text-sm tracking-wide">
+                  Official UK Institutional Governance &amp; Compliance Audit Matrix
+                </span>
+                <span className="text-[11px] font-mono bg-white/10 px-2 py-0.5 rounded text-emerald-300">
+                  Public Register Verified
+                </span>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-slate-100 border-b border-slate-200 text-slate-700 font-bold uppercase tracking-wider text-[10px]">
+                      <th className="p-3.5 border-r border-slate-200">Point Vérifié / Critère</th>
+                      <th className="p-3.5 border-r border-slate-200 w-44">Résultat &amp; Statut</th>
+                      <th className="p-3.5">Données Légales &amp; Preuves Officielles (Royaume-Uni)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
+                    <tr className="hover:bg-slate-50 transition-colors">
+                      <td className="p-3.5 font-bold text-[#001E6D] border-r border-slate-200">
+                        Identité juridique de l'organisme
+                      </td>
+                      <td className="p-3.5 border-r border-slate-200">
+                        <span className="inline-flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          Confirmée &amp; Active
+                        </span>
+                      </td>
+                      <td className="p-3.5 leading-relaxed">
+                        <strong>BRI BOARD FOR TRAINING AND CONSULTING LTD</strong> (operating as The British Board).<br/>
+                        • <strong>UK Company No:</strong> <span className="font-mono font-bold text-[#001E6D]">10473336</span> (Incorporated: 10 Nov 2016, England &amp; Wales).<br/>
+                        • <strong>Registered Office:</strong> 2 Frederick Street, Kings Cross, London, WC1X 0ND.<br/>
+                        • <strong>Nature of Business (SIC):</strong> 85421 &amp; 85422 (Higher Education), 85590 (Other Education), 85600 (Educational Support).
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-slate-50 transition-colors">
+                      <td className="p-3.5 font-bold text-[#001E6D] border-r border-slate-200">
+                        Reconnaissance gouvernementale britannique
+                      </td>
+                      <td className="p-3.5 border-r border-slate-200">
+                        <span className="inline-flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          Démontrée (UKRLP)
+                        </span>
+                      </td>
+                      <td className="p-3.5 leading-relaxed">
+                        Inscrit officiellement au <strong>UK Register of Learning Providers</strong> sous le <strong>UKPRN: 10062939</strong> (UK Department for Education / ESFA). Consultable publiquement sur le portail gouvernemental <a href="https://www.ukrlp.co.uk" target="_blank" rel="noopener noreferrer" className="text-[#001E6D] underline font-semibold">ukrlp.co.uk</a>.
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-slate-50 transition-colors">
+                      <td className="p-3.5 font-bold text-[#001E6D] border-r border-slate-200">
+                        Accréditation UKAS &amp; Statut Réglementaire
+                      </td>
+                      <td className="p-3.5 border-r border-slate-200">
+                        <span className="inline-flex items-center gap-1 text-blue-800 font-bold bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                          <Check className="w-3.5 h-3.5" />
+                          Statut Délimité
+                        </span>
+                      </td>
+                      <td className="p-3.5 leading-relaxed">
+                        Organisme d'accréditation pédagogique sectorielle et de développement professionnel continu (CPD) pour l'esthétique et la formation technique. Opérant sous le droit britannique de l'enseignement indépendant. Ne relève pas des essais industriels de conformité de laboratoire UKAS, ni des examens scolaires secondaires généraux Ofqual.
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-slate-50 transition-colors">
+                      <td className="p-3.5 font-bold text-[#001E6D] border-r border-slate-200">
+                        Reconnaissance internationale
+                      </td>
+                      <td className="p-3.5 border-r border-slate-200">
+                        <span className="inline-flex items-center gap-1 text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          Démontrée &amp; Active
+                        </span>
+                      </td>
+                      <td className="p-3.5 leading-relaxed">
+                        • Partenariat institutionnel et accréditation bilatérale de cursus avec <strong>L'Académie Internationale de Beauté</strong> (France, Tunisie, Maroc, Afrique francophone).<br/>
+                        • Registre public international de vérification des attestations (Certificate Checker) garantissant l'authenticité numérique pour chaque employeur mondial.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
             {/* Official Domain Cross-Reference Box */}
             <div className="mt-8 p-4 bg-white border border-slate-200 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
